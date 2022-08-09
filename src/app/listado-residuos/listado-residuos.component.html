@@ -1,0 +1,165 @@
+<div class="container bod">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Residuos</h4>
+    </div>
+    <div class="col-md-6 d-flex flex-row-reverse">
+      <button class="btn btn-primary primary mx-3"><h6>PDF</h6></button>
+      <button class="btn btn-primary primary"><h6>CSV</h6></button>
+    </div>
+  </div>
+  <hr class="divider" />
+  <div class="row">
+    <div class="col-md-5">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control rounded-pill caja-texto"
+          placeholder="Busca por residuo, por categoría o tipo"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary shadow bg-white buscar">
+            <h6>Buscar</h6>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 d-flex flex-row-reverse">
+      <button class="btn btn-primary residuo"><h6>Nuevo residuo</h6></button>
+    </div>
+  </div>
+  <hr class="divider" />
+  <div class="row">
+    <table class="table text" *ngIf="!tabla; else Vacio" >
+      <thead>
+        <tr>
+          <th scope="col">Categoría</th>
+          <th scope="col">Tipo de Residuo</th>
+          <th scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
+          <th scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
+          <th scope="col">Reciclable</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Estatus</th>
+          <th scope="col">Detalle</th>
+        </tr>
+      </thead>
+        <tbody class="tabla">
+          <tr *ngFor="let objecto of tabla">
+            <td scope="col">{{ objecto[0] }}</td>
+            <td scope="col">{{ objecto[1] }}</td>
+            <td scope="col">{{ objecto[2] }}</td>
+            <td scope="col">{{ objecto[3] }} kg/m<sup>3</sup></td>
+            <td scope="col">{{ objecto[4] }} kg/m<sup>3</sup></td>
+            <td scope="col">
+              <a href="#"><img src="/assets/static/iconEdit.png" /></a>
+            </td>
+            <td scope="col">
+              <div class="col form-check form-switch">
+                <input
+                  class="form-check-input toggle"
+                  type="checkbox"
+                  role="switch"
+                  id="dato1"
+                  checked
+                />
+                <label class="form-check-label verde" for="dato1"
+                  ><h6>Activo</h6></label
+                >
+              </div>
+            </td>
+            <td scope="col"><a href="#">Ver Detalle</a></td>
+          </tr>
+        </tbody>
+    </table>
+    <ng-template #Vacio>
+      <table class="table text">
+      <thead>
+        <tr>
+          <th scope="col">Categoría</th>
+          <th scope="col">Tipo de Residuo</th>
+          <th scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
+          <th scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
+          <th scope="col">Reciclable</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Estatus</th>
+          <th scope="col">Detalle</th>
+        </tr>
+      </thead>
+    </table>
+      <div class="col-md-12">
+        <div class="bg-white">
+          <br>
+          <img class="image" src="/assets/static/Nothing.png">
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="bg-white">
+          <h6 class="text nothing">Lo sentimos no tenemos resultados asociados a tu búsqueda.</h6>
+          <br>
+        </div>
+      </div>
+      <div class="col-md-12 d-inline d-inline-flex">
+        <div class="white center">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination center ">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item active disabled azul"><a class="page-link" href="#">1</a></li>
+              <li class="page-item">
+                <a class="page-link disabled" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- <div class="col-md-12">
+        <div class="bg-white center">
+         <div class="d-inline d-inline-flex p-2 center">
+           <div class="center">
+             <nav aria-label="Page navigation example">
+               <ul class="pagination center">
+                 <li class="page-item disabled">
+                   <a class="page-link" href="#" aria-label="Previous">
+                     <span aria-hidden="true">&laquo;&laquo;</span>
+                   </a>
+                 </li>
+                 <li class="page-item disabled">
+                   <a class="page-link" href="#" aria-label="Previous">
+                     <span aria-hidden="true">&laquo;</span>
+                   </a>
+                 </li>
+                 <li class="page-item active disabled azul"><a class="page-link" href="#">1</a></li>
+                 <li class="page-item">
+                   <a class="page-link disabled" href="#" aria-label="Next">
+                     <span aria-hidden="true">&raquo;</span>
+                   </a>
+                 </li>
+                 <li class="page-item disabled">
+                   <a class="page-link" href="#" aria-label="Next">
+                     <span aria-hidden="true">&raquo;&raquo;</span>
+                   </a>
+                 </li>
+               </ul>
+             </nav>
+           </div>
+         </div>
+        </div>
+       </div> -->
+    </ng-template>
+  </div>
+</div>

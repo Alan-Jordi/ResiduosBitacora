@@ -1,0 +1,100 @@
+.primary{
+    background-color: white;
+    color: #0062ae;
+    border-radius: 15px;
+    width: 118.6px;
+    height: 40px;
+    background: url("/assets/static/Icon material-cloud-download.png") no-repeat;
+    background-position: 2rem 0.5rem;
+    cursor:pointer;
+    text-indent: 2.5rem;
+}
+
+.bod{
+    background-color: #f7f8fa;
+}
+.divider{
+    border: solid 1px #dcdcdc;
+}
+
+.buscar{
+    color: #0762ae;
+    border: none;
+    width: 96px;
+    height: 44px;
+    border-radius: 15px;
+    margin-left: -19px;
+    z-index: 3;
+}
+
+.caja-texto{
+    border-color: #dcdcdc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 40px;
+    margin-top: 2px;
+}
+
+.caja-texto::placeholder{
+    text-align: left;
+    color: #949494;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.caja-texto::focus{
+    outline: none !important;
+    box-shadow: 0 0 10px #dcdcdc;
+}
+
+.residuo{
+    width: 164px;
+    height: 40px;
+    background-color: #0762ae;
+    border-color: #0762ae;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.text{
+    text-align: center;
+}
+
+.verde{
+    color: #37b230;
+}
+
+.form-check-input:checked {
+    background-color: #37b230;
+    border-color: #37b230;
+}
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    border-color: white;
+    border-width: 100px;
+}
+
+.nothing{
+    margin-bottom: 100px;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.azul{
+    color: #0062af;
+}
+
+.white{
+    background-color: white;
+}
+
+
