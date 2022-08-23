@@ -1,12 +1,58 @@
-<div class="container bod">
-  <div class="row">
+<div class="bod">
+  <div class="row bod">
     <div class="col-md-6">
-      <h4>Residuos</h4>
+      <h4 class="margin-l">Residuos</h4>
     </div>
-    <div class="col-md-6 d-flex flex-row-reverse">
+    <div
+      class="col-md-6 d-flex flex-row-reverse"
+      *ngIf="!boolAlta && !boolEdita; else AlertaAlta"
+    >
       <button class="btn btn-primary primary mx-3"><h6>PDF</h6></button>
-      <button class="btn btn-primary primary"><h6>CSV</h6></button>
+      <button class="btn btn-primary primary "><h6>CSV</h6></button>
     </div>
+    <ng-template #AlertaAlta>
+      <div class="col-md-6" *ngIf="boolAlta; else Edita">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              <strong>¡Listo!</strong> Se generó un nuevo residuo exitosamente.
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+    <ng-template #Edita>
+      <div class="col-md-2"></div>
+      <div class="col-md-4" *ngIf="boolEdita">
+        <div class="margin-box size-box margin-l3">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              <strong>¡Muy bien!</strong> La edición fue exitosa.
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    </ng-template>
   </div>
   <hr class="divider" />
   <div class="row">
@@ -14,152 +60,183 @@
       <div class="input-group">
         <input
           type="text"
-          class="form-control rounded-pill caja-texto"
+          class="form-control rounded-pill caja-texto margin-l"
           placeholder="Busca por residuo, por categoría o tipo"
         />
         <div class="input-group-append">
-          <button class="btn btn-primary shadow bg-white buscar">
+          <button class="btn btn-primary shadows buscar">
             <h6>Buscar</h6>
           </button>
         </div>
       </div>
     </div>
     <div class="col-md-7 d-flex flex-row-reverse">
-      <button class="btn btn-primary residuo"><h6>Nuevo residuo</h6></button>
+      <button class="btn btn-primary residuo shadows" (click)="altaPagina()">
+        <h6>Nuevo residuo</h6>
+      </button>
     </div>
   </div>
   <hr class="divider" />
-  <div class="row">
-    <table class="table text" *ngIf="!tabla; else Vacio" >
-      <thead>
-        <tr>
-          <th scope="col">Categoría</th>
-          <th scope="col">Tipo de Residuo</th>
-          <th scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
-          <th scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
-          <th scope="col">Reciclable</th>
-          <th scope="col">Editar</th>
-          <th scope="col">Estatus</th>
-          <th scope="col">Detalle</th>
-        </tr>
-      </thead>
-        <tbody class="tabla">
-          <tr *ngFor="let objecto of tabla">
-            <td scope="col">{{ objecto[0] }}</td>
-            <td scope="col">{{ objecto[1] }}</td>
-            <td scope="col">{{ objecto[2] }}</td>
-            <td scope="col">{{ objecto[3] }} kg/m<sup>3</sup></td>
-            <td scope="col">{{ objecto[4] }} kg/m<sup>3</sup></td>
+
+  <div class="row bod" *ngIf="bool; else Carga">
+    <div *ngIf="tabla[0].id != null; else Vacio">
+      <table class="table text margin-b">
+        <thead>
+          <tr>
+            <th scope="col">Categoría</th>
+            <th scope="col">Tipo de Residuo</th>
+            <th scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
+            <th scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
+            <th scope="col">Reciclable</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Detalle</th>
+          </tr>
+        </thead>
+        <tbody class="tabla white">
+          <tr *ngFor="let objeto of tabla; index as i">
+            <td scope="col">{{ objeto.categoria }}</td>
+            <td scope="col">{{ objeto.tipo }}</td>
+            <td scope="col">{{ objeto.denNat }}</td>
+            <td scope="col">{{ objeto.denComp }}</td>
+            <td scope="col">{{ objeto.rec }}</td>
             <td scope="col">
-              <a href="#"><img src="/assets/static/iconEdit.png" /></a>
+              <a href="edita"><img src="/assets/static/iconEdit.png" /></a>
             </td>
             <td scope="col">
-              <div class="col form-check form-switch">
+              <div class="col form-check form-switch" *ngIf="objeto.estatus; else No">
                 <input
                   class="form-check-input toggle"
                   type="checkbox"
                   role="switch"
-                  id="dato1"
+                  attr.id="{{ objeto.id }}"
+                  (focus)="verChecked(objeto.estatus, i)"
                   checked
                 />
-                <label class="form-check-label verde" for="dato1"
+                <label class="form-check-label verde ancho" for="{{ objeto.id }}"
                   ><h6>Activo</h6></label
                 >
               </div>
+              <ng-template #No>
+                <div class="col form-check form-switch">
+                  <input
+                    class="form-check-input toggle"
+                    type="checkbox"
+                    role="switch"
+                    attr.id="{{ objeto.id }}"
+                    (focus)="verChecked(objeto.estatus, i)"
+                  />
+                  <label class="form-check-label gris ancho" for="{{ objeto.id }}"
+                    ><h6>Inactivo</h6></label
+                  >
+                </div>
+              </ng-template>
             </td>
-            <td scope="col"><a href="#">Ver Detalle</a></td>
+            <td scope="col"><a href="detalle">Ver Detalle</a></td>
           </tr>
         </tbody>
-    </table>
+      </table>
+      <div class="white">
+        <br>
+        <br>
+      </div>
+      <div class="col-md-12">
+        <div class="white">
+          <p-paginator
+            [rows]="1"
+            [totalRecords]="1"
+            p-paginator-next="pi-angle-left"
+          ></p-paginator>
+        </div>
+      </div>
+      <br />
+    </div>
+
     <ng-template #Vacio>
       <table class="table text">
-      <thead>
-        <tr>
-          <th scope="col">Categoría</th>
-          <th scope="col">Tipo de Residuo</th>
-          <th scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
-          <th scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
-          <th scope="col">Reciclable</th>
-          <th scope="col">Editar</th>
-          <th scope="col">Estatus</th>
-          <th scope="col">Detalle</th>
-        </tr>
-      </thead>
-    </table>
+        <thead>
+          <tr>
+            <th scope="col">Categoría</th>
+            <th scope="col">Tipo de Residuo</th>
+            <th scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
+            <th scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
+            <th scope="col">Reciclable</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Detalle</th>
+          </tr>
+        </thead>
+      </table>
       <div class="col-md-12">
         <div class="bg-white">
-          <br>
-          <img class="image" src="/assets/static/Nothing.png">
+          <br />
+          <img class="image" src="/assets/static/Nothing.png" />
         </div>
       </div>
       <div class="col-md-12">
         <div class="bg-white">
-          <h6 class="text nothing">Lo sentimos no tenemos resultados asociados a tu búsqueda.</h6>
+          <h6 class="text nothing margin-b2">
+            Lo sentimos no tenemos resultados asociados a tu búsqueda.
+          </h6>
           <br>
         </div>
       </div>
-      <div class="col-md-12 d-inline d-inline-flex">
-        <div class="white center">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination center ">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item active disabled azul"><a class="page-link" href="#">1</a></li>
-              <li class="page-item">
-                <a class="page-link disabled" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+      <div class="col-md-12">
+        <div class="white margin-b3">
+          <p-paginator
+            [rows]="1"
+            [totalRecords]="1"
+            p-paginator-next="pi-angle-left"
+          ></p-paginator>
         </div>
       </div>
-      <!-- <div class="col-md-12">
-        <div class="bg-white center">
-         <div class="d-inline d-inline-flex p-2 center">
-           <div class="center">
-             <nav aria-label="Page navigation example">
-               <ul class="pagination center">
-                 <li class="page-item disabled">
-                   <a class="page-link" href="#" aria-label="Previous">
-                     <span aria-hidden="true">&laquo;&laquo;</span>
-                   </a>
-                 </li>
-                 <li class="page-item disabled">
-                   <a class="page-link" href="#" aria-label="Previous">
-                     <span aria-hidden="true">&laquo;</span>
-                   </a>
-                 </li>
-                 <li class="page-item active disabled azul"><a class="page-link" href="#">1</a></li>
-                 <li class="page-item">
-                   <a class="page-link disabled" href="#" aria-label="Next">
-                     <span aria-hidden="true">&raquo;</span>
-                   </a>
-                 </li>
-                 <li class="page-item disabled">
-                   <a class="page-link" href="#" aria-label="Next">
-                     <span aria-hidden="true">&raquo;&raquo;</span>
-                   </a>
-                 </li>
-               </ul>
-             </nav>
-           </div>
-         </div>
-        </div>
-       </div> -->
+      <br>
     </ng-template>
   </div>
+  <ng-template #Carga>
+    <div class="bg-white">
+      <table class="table text bod">
+        <thead>
+          <tr>
+            <th scope="col">Categoría</th>
+            <th scope="col">Tipo de Residuo</th>
+            <th scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
+            <th scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
+            <th scope="col">Reciclable</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Detalle</th>
+          </tr>
+        </thead>
+      </table>
+      <div class="col-mb-12">
+        <div class="bg-white">
+          <div class="progress center carga">
+            <div
+              id="barra"
+              class="progress-bar bg-secondary"
+              role="progressbar"
+              [style]="styleCont"
+              aria-valuenow="0"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <h6 class="text textocarga margin-b">
+            La búsqueda tardará solo un momento
+          </h6>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="white margin-u">
+          <p-paginator
+            [rows]="1"
+            [totalRecords]="1"
+            p-paginator-next="pi-angle-left"
+          ></p-paginator>
+        </div>
+      </div>
+    </div>
+    <br />
+  </ng-template>
 </div>

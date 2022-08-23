@@ -1,30 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ListadoResiduosComponent } from '../listado-residuos/listado-residuos.component';
 import { ServicioAlertas } from '../ServicioAlertas.service';
 
 @Component({
-  selector: 'app-alta-residuos',
-  templateUrl: './alta-residuos.component.html',
-  styleUrls: ['./alta-residuos.component.css'],
-  providers:[ServicioAlertas]
+  selector: 'app-editar-residuos',
+  templateUrl: './editar-residuos.component.html',
+  styleUrls: ['./editar-residuos.component.css'],
+  providers: [ServicioAlertas]
 })
-export class AltaResiduosComponent {
+export class EditarResiduosComponent {
 
   public bool = false;
   public fecha = '';
 
-  constructor(private router:Router, private servicioAlertas:ServicioAlertas) {
+  constructor(private router:Router, private servicioAlertas: ServicioAlertas) { 
     this.fecha = this.date();
-   }
+  }
 
   listaPagina(): void{
-    this.router.navigateByUrl('listado');
+    this.servicioAlertas.boolEditaSet = true;
+    this.router.navigateByUrl('listado')
   }
-  listaPaginaA(): void{
-    this.servicioAlertas.boolAltaSet = true;
-    this.router.navigateByUrl('listado');
-  }
+
   alert(): void{
     this.bool = true;
   }
@@ -79,4 +76,5 @@ export class AltaResiduosComponent {
       nRadio.checked = false;
     }
   }
+
 }

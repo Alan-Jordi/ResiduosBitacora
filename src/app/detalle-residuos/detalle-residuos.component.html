@@ -1,0 +1,86 @@
+<div class="row bod">
+  <div class="col-md-12 mb-3">
+    <h4 class="margin-b0">
+      <a href="listado"
+        ><img class="img-margin" src="/assets/static/iconChevLeft.png"
+      /></a>
+      [Categoría del residuo]
+    </h4>
+    <h5 class="margin-l">[Tipo del residuo]</h5>
+  </div>
+  <div class="col-md-6 mx-0 padding-x0">
+    <h5 class="blue borders text margin-x0">Acciones operarias</h5>
+  </div>
+  <div class="col-md-6 mx-0 padding-x0">
+    <hr class="divider margin-t" />
+  </div>
+  <div class="col-md-5 margin-t0">
+    <div class="input-group">
+      <div class="input-group-append">
+        <select
+          class="form-select rounded-pill caja-texto caja2 blue"
+          aria-label="Default select example"
+        >
+          <option selected>Acción</option>
+          <option value="1">Generó</option>
+          <option value="2">Editó</option>
+          <option value="3">Activó</option>
+          <option value="3">Desactivó</option>
+        </select>
+      </div>
+      <div class="input-group-append">
+        <select
+          class="form-select rounded-pill caja-texto caja blue"
+          aria-label="Default select example"
+        >
+          <option selected value="1">Septiembre</option>
+          <option value="2">Hace 6 meses</option>
+          <option value="3">Hace 1 año</option>
+          <option value="4">Hace 2 años</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7 d-flex flex-row-reverse">
+    <button class="btn btn-primary primary mx-3"><h6>PDF</h6></button>
+    <button class="btn btn-primary primary"><h6>CSV</h6></button>
+  </div>
+  <div class="bod margin-t2">
+    <table class="table margin-b0">
+      <thead>
+        <tr>
+          <th scope="col">Acción</th>
+          <th scope="col">Nombre del colaborador</th>
+          <th scope="col">N<sup>o</sup> del colaborador</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Hora</th>
+        </tr>
+      </thead>
+      <tbody class="tabla bg-white">
+        <tr *ngFor="let objecto of tabla; index as i">
+          <td scope="col">
+            <div class="accion" [ngClass]="getObjeto(i)">
+              <h6 class="white">{{ objecto.accion }}</h6>
+            </div>
+          </td>
+          <td scope="col">{{ objecto.nombre }}</td>
+          <td scope="col">{{ objecto.numero }} kg/m<sup>3</sup></td>
+          <td scope="col">{{ objecto.fecha }} kg/m<sup>3</sup></td>
+          <td scope="col">{{ objecto.hora }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <div class="col-md-12">
+      <div class="white">
+        <p-paginator
+          [rows]="1"
+          [totalRecords]="1"
+          p-paginator-next="pi-angle-left"
+        ></p-paginator>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>

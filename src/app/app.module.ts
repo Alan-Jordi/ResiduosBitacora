@@ -5,16 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListadoResiduosComponent } from './listado-residuos/listado-residuos.component';
 import { AltaResiduosComponent } from './alta-residuos/alta-residuos.component';
+import { PaginatorModule } from 'primeng/paginator';
+import { EditarResiduosComponent } from './editar-residuos/editar-residuos.component';
+import { DetalleResiduosComponent } from './detalle-residuos/detalle-residuos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListadoResiduosComponent,
-    AltaResiduosComponent
+    AltaResiduosComponent,
+    EditarResiduosComponent,
+    DetalleResiduosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
