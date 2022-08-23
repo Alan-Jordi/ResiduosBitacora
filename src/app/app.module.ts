@@ -8,6 +8,7 @@ import { AltaResiduosComponent } from './alta-residuos/alta-residuos.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { EditarResiduosComponent } from './editar-residuos/editar-residuos.component';
 import { DetalleResiduosComponent } from './detalle-residuos/detalle-residuos.component';
+import { ListadoRecolectoresComponent } from './listado-recolectores/listado-recolectores.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DetalleResiduosComponent } from './detalle-residuos/detalle-residuos.co
     ListadoResiduosComponent,
     AltaResiduosComponent,
     EditarResiduosComponent,
-    DetalleResiduosComponent
+    DetalleResiduosComponent,
+    ListadoRecolectoresComponent
   ],
   imports: [
     BrowserModule,
