@@ -28,6 +28,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     height: 40px;
+    width: 92%;
+}
+.width-2{
+    width: 95% !important; 
 }
 .margin-l{
     margin-right: 20px;
@@ -99,4 +103,7 @@
 }
 .shadows:focus{
     box-shadow: none;
+}
+.centro{
+    margin: auto;
 }

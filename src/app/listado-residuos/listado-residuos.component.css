@@ -5,7 +5,7 @@
     width: 118.6px;
     height: 40px;
     background: url("/assets/static/Icon material-cloud-download.png") no-repeat;
-    background-position: 2rem 0.5rem;
+    background-position: 2rem 0.7rem;
     cursor:pointer;
     text-indent: 2.5rem;
 }
@@ -19,6 +19,7 @@
 
 .bod{
     background-color: #f7f8fa;
+    overflow: hidden;
 }
 .divider{
     border: solid 1px #dcdcdc;
@@ -112,6 +113,9 @@
 .white{
     background-color: white;
 }
+.centro{
+    margin: auto;
+}
 .margin-b{
     margin-bottom: 0;
 }
@@ -144,6 +148,10 @@
     height: 8px;
     margin-top: 176px;
     margin-bottom: 0px;  
+}
+.no-border-x{
+    border-left: none !important;
+    border-right: none;
 }
 .textocarga{
     margin-top: 37px;
@@ -178,4 +186,22 @@
     background: #0062af;
     border-color: #0062af;
     color: #ffffff;
+}
+::ng-deep.p-datatable .p-datatable-tbody > tr > td {
+    text-align: center !important;
+    border: none;
+    border-bottom: 1px solid #c8c8c8;
+    border-width: 1px;
+    padding: 0.571rem 0.857rem;
+}
+::ng-deep.p-datatable .p-datatable-thead > tr > th {
+    text-align: center;
+    padding: 0.571rem 0.857rem;
+    border: none;
+    border-bottom: 1px solid #c8c8c8;
+    border-width: 1px 1px 1px 1px;
+    font-weight: 700;
+    color: #333333;
+    background: #f4f4f4;
+    transition: background-color 0.2s, box-shadow 0.2s;
 }

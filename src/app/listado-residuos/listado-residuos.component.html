@@ -1,61 +1,68 @@
 <div class="bod">
   <div class="row bod">
-    <div class="col-md-6">
-      <h4 class="margin-l">Residuos</h4>
-    </div>
-    <div
-      class="col-md-6 d-flex flex-row-reverse"
-      *ngIf="!boolAlta && !boolEdita; else AlertaAlta"
-    >
-      <button class="btn btn-primary primary mx-3"><h6>PDF</h6></button>
-      <button class="btn btn-primary primary "><h6>CSV</h6></button>
-    </div>
-    <ng-template #AlertaAlta>
-      <div class="col-md-6" *ngIf="boolAlta; else Edita">
-        <div class="margin-box size-box margin-l2">
-          <div
-            class="alert verde-alert alert-dismissible fade show"
-            role="alert"
-          >
-            <div class="text">
-              <strong>¡Listo!</strong> Se generó un nuevo residuo exitosamente.
+    <div class="d-flex">
+      <div class="col-md-6">
+        <h4 class="margin-l">Residuos</h4>
+      </div>
+      <div
+        class="col-md-6 d-flex flex-row-reverse"
+        *ngIf="!boolAlta && !boolEdita; else AlertaAlta"
+      >
+        <button class="btn btn-primary primary mx-3">
+          <h6 class="centro">PDF</h6>
+        </button>
+        <button class="btn btn-primary primary">
+          <h6 class="centro">CSV</h6>
+        </button>
+      </div>
+      <ng-template #AlertaAlta>
+        <div class="col-md-6" *ngIf="boolAlta; else Edita">
+          <div class="margin-box size-box margin-l2">
+            <div
+              class="alert verde-alert alert-dismissible fade show"
+              role="alert"
+            >
+              <div class="text">
+                <strong>¡Listo!</strong> Se generó un nuevo residuo
+                exitosamente.
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+                (click)="click()"
+              ></button>
             </div>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-              (click)="click()"
-            ></button>
           </div>
         </div>
-      </div>
-    <ng-template #Edita>
-      <div class="col-md-2"></div>
-      <div class="col-md-4" *ngIf="boolEdita">
-        <div class="margin-box size-box margin-l3">
-          <div
-            class="alert verde-alert alert-dismissible fade show"
-            role="alert"
-          >
-            <div class="text">
-              <strong>¡Muy bien!</strong> La edición fue exitosa.
+        <ng-template #Edita>
+          <div class="col-md-2"></div>
+          <div class="col-md-4" *ngIf="boolEdita">
+            <div class="margin-box size-box margin-l3">
+              <div
+                class="alert verde-alert alert-dismissible fade show"
+                role="alert"
+              >
+                <div class="text">
+                  <strong>¡Muy bien!</strong> La edición fue exitosa.
+                </div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                  (click)="click()"
+                ></button>
+              </div>
             </div>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-              (click)="click()"
-            ></button>
           </div>
-        </div>
-      </div>
-    </ng-template>
-    </ng-template>
+        </ng-template>
+      </ng-template>
+    </div>
   </div>
   <hr class="divider" />
-  <div class="row">
+  <div class="d-flex">
     <div class="col-md-5">
       <div class="input-group">
         <input
@@ -65,14 +72,14 @@
         />
         <div class="input-group-append">
           <button class="btn btn-primary shadows buscar">
-            <h6>Buscar</h6>
+            <h6 class="centro">Buscar</h6>
           </button>
         </div>
       </div>
     </div>
     <div class="col-md-7 d-flex flex-row-reverse">
       <button class="btn btn-primary residuo shadows" (click)="altaPagina()">
-        <h6>Nuevo residuo</h6>
+        <h6 class="centro">Nuevo residuo</h6>
       </button>
     </div>
   </div>
@@ -80,75 +87,85 @@
 
   <div class="row bod" *ngIf="bool; else Carga">
     <div *ngIf="tabla[0].id != null; else Vacio">
-      <table class="table text margin-b">
-        <thead>
+      <p-table
+        [columns]="column"
+        [value]="tabla"
+        [paginator]="true"
+        [rows]="7"
+        [totalRecords]="tabla.length"
+        [pageLinks]="3"
+        class="table text margin-b"
+      >
+        <ng-template pTemplate="header">
           <tr>
-            <th scope="col">Categoría</th>
-            <th scope="col">Tipo de Residuo</th>
-            <th scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
-            <th scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
-            <th scope="col">Reciclable</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Estatus</th>
-            <th scope="col">Detalle</th>
+            <th class="ver-align" scope="col">Categoría</th>
+            <th class="ver-align" scope="col">Tipo de Residuo</th>
+            <th class="ver-align" scope="col">Densidad natural (kg/m<sup>3</sup>)</th>
+            <th class="ver-align" scope="col">Densidad compactada (kg/m<sup>3</sup>)</th>
+            <th class="ver-align" scope="col">Reciclable</th>
+            <th class="ver-align" scope="col">Editar</th>
+            <th class="ver-align" scope="col">Estatus</th>
+            <th class="ver-align" scope="col">Detalle</th>
           </tr>
-        </thead>
-        <tbody class="tabla white">
-          <tr *ngFor="let objeto of tabla; index as i">
-            <td scope="col">{{ objeto.categoria }}</td>
-            <td scope="col">{{ objeto.tipo }}</td>
-            <td scope="col">{{ objeto.denNat }}</td>
-            <td scope="col">{{ objeto.denComp }}</td>
-            <td scope="col">{{ objeto.rec }}</td>
-            <td scope="col">
-              <a href="edita"><img src="/assets/static/iconEdit.png" /></a>
+        </ng-template>
+        <ng-template
+          pTemplate="body"
+          let-rowData
+          let-columns="columns"
+          let-i="rowIndex"
+          class="white"
+        >
+          <tr>
+            <td class="ver-align no-border-x" scope="col">{{ rowData.categoria }}</td>
+            <td class="ver-align no-border-x" scope="col">{{ rowData.tipo }}</td>
+            <td class="ver-align no-border-x"scope="col">{{ rowData.denNat }}</td>
+            <td class="ver-align no-border-x" scope="col">{{ rowData.denComp }}</td>
+            <td class="ver-align no-border-x" scope="col">{{ rowData.rec }}</td>
+            <td class="ver-align no-border-x" scope="col">
+              <a href="edita-residuos"
+                ><img src="/assets/static/iconEdit.png"
+              /></a>
             </td>
-            <td scope="col">
-              <div class="col form-check form-switch" *ngIf="objeto.estatus; else No">
+            <td class="ver-align no-border-x" scope="col">
+              <div
+                class="form-check form-switch"
+                *ngIf="rowData.estatus; else No"
+              >
                 <input
                   class="form-check-input toggle"
                   type="checkbox"
                   role="switch"
-                  attr.id="{{ objeto.id }}"
-                  (focus)="verChecked(objeto.estatus, i)"
+                  attr.id="{{ rowData.id }}"
+                  (focus)="verChecked(rowData.estatus, i)"
                   checked
                 />
-                <label class="form-check-label verde ancho" for="{{ objeto.id }}"
+                <label
+                  class="form-check-label verde ancho"
+                  for="{{ rowData.id }}"
                   ><h6>Activo</h6></label
                 >
               </div>
               <ng-template #No>
-                <div class="col form-check form-switch">
+                <div class="form-check form-switch">
                   <input
                     class="form-check-input toggle"
                     type="checkbox"
                     role="switch"
-                    attr.id="{{ objeto.id }}"
-                    (focus)="verChecked(objeto.estatus, i)"
+                    attr.id="{{ rowData.id }}"
+                    (focus)="verChecked(rowData.estatus, i)"
                   />
-                  <label class="form-check-label gris ancho" for="{{ objeto.id }}"
+                  <label
+                    class="form-check-label gris ancho"
+                    for="{{ rowData.id }}"
                     ><h6>Inactivo</h6></label
                   >
                 </div>
               </ng-template>
             </td>
-            <td scope="col"><a href="detalle">Ver Detalle</a></td>
+            <td scope="col"><a href="detalle-residuos">Ver Detalle</a></td>
           </tr>
-        </tbody>
-      </table>
-      <div class="white">
-        <br>
-        <br>
-      </div>
-      <div class="col-md-12">
-        <div class="white">
-          <p-paginator
-            [rows]="1"
-            [totalRecords]="1"
-            p-paginator-next="pi-angle-left"
-          ></p-paginator>
-        </div>
-      </div>
+        </ng-template>
+      </p-table>
       <br />
     </div>
 
@@ -178,7 +195,7 @@
           <h6 class="text nothing margin-b2">
             Lo sentimos no tenemos resultados asociados a tu búsqueda.
           </h6>
-          <br>
+          <br />
         </div>
       </div>
       <div class="col-md-12">
@@ -190,7 +207,7 @@
           ></p-paginator>
         </div>
       </div>
-      <br>
+      <br />
     </ng-template>
   </div>
   <ng-template #Carga>

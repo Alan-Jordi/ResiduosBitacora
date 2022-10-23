@@ -1,1 +1,253 @@
-<p>listado-recolectores works!</p>
+<div class="bod">
+  <div class="row bod">
+    <div class="d-flex">
+      <div class="col-md-6">
+        <h4 class="margin-l">Recolectores</h4>
+      </div>
+      <div
+        class="col-md-6 d-flex flex-row-reverse"
+        *ngIf="!boolAlta && !boolElimina; else AlertaAlta"
+      >
+        <button class="btn btn-primary primary mx-3">
+          <i class="fa fa-cloud-arrow-down"></i>
+          PDF
+        </button>
+        <button class="btn btn-primary primary">
+          <i class="fa fa-cloud-arrow-down"></i>
+          CSV
+        </button>
+      </div>
+      <ng-template #AlertaAlta>
+        <div class="col-md-6" *ngIf="boolAlta; else Edita">
+          <div class="margin-box size-box margin-l2">
+            <div
+              class="alert verde-alert alert-dismissible fade show"
+              role="alert"
+            >
+              <div class="text">
+                El recolector se ha agregado exitosamente a la lista.
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+                (click)="click()"
+              ></button>
+            </div>
+          </div>
+        </div>
+        <ng-template #Edita>
+          <div class="col-md-6" *ngIf="boolElimina">
+            <div class="margin-box size-box margin-l3">
+              <div
+                class="alert verde-alert alert-dismissible fade show"
+                role="alert"
+              >
+                <div class="text">
+                  <strong>¡Atención!</strong> El recolector [nombre de
+                  recolector] ha sido eliminado
+                </div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                  (click)="click()"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+  <hr class="divider" />
+  <div class="row">
+    <div class="d-flex">
+      <div class="col-md-4">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control rounded-pill caja-texto margin-l"
+            placeholder="Nombre o razón social"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-primary shadows buscar">
+              <h6 class="centro">Buscar</h6>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 d-flex flex-row-reverse">
+        <button class="btn btn-primary residuo shadows" (click)="altaPagina()">
+          <h6 class="centro">Nuevo recolector</h6>
+        </button>
+      </div>
+    </div>
+  </div>
+  <hr class="divider" />
+
+  <!-- <div class="row bod" *ngIf="bool; else Carga"> -->
+  <div *ngIf="tabla[0].id != null; else Vacio">
+    <p-table [columns]="column" [value]="tabla" [paginator]="true" [rows]="7" 
+    [totalRecords]="tabla.length" [pageLinks]="3" class="table text margin-b">
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="ver-align" scope="col">Razón Social</th>
+          <th class="ver-align" scope="col">RFC</th>
+          <th class="ver-align" scope="col">Tipo de recolector</th>
+          <th class="ver-align" scope="col">Jurisdicción</th>
+          <th class="ver-align" scope="col">Vigencia</th>
+          <th class="ver-align" scope="col">Estatus</th>
+          <th class="ver-align" scope="col">Detalle</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="rowIndex" class="white ">
+        <tr>
+          <td class="ver-align no-border-x" scope="col">{{ rowData.razonSocial }}</td>
+          <td class="ver-align no-border-x" scope="col">{{ rowData.rfc }}</td>
+          <td class="ver-align no-border-x" scope="col">{{ rowData.tipoRecolector }}</td>
+          <td class="ver-align no-border-x" scope="col">{{ rowData.jurisdiccion }}</td>
+          <td class="ver-align no-border-x" scope="col">
+            <div class="accion" [ngClass]="getObjeto(i)">
+              <h6 class="text-vig padding-t">{{ rowData.vigencia }}</h6>
+            </div>
+          </td>
+          <td class="p-box ver-align no-border-x" scope="col">
+            <div class="form-check form-switch" *ngIf="rowData.estatus; else No">
+              <input
+                class="form-check-input toggle"
+                type="checkbox"
+                role="switch"
+                attr.id="{{ rowData.id }}"
+                (focus)="verChecked(rowData.estatus, i)"
+                checked
+              />
+              <label class="form-check-label verde ancho" for="{{ rowData.id }}"
+                ><h6>Activo</h6></label
+              >
+            </div>
+            <ng-template #No>
+              <div class="form-check form-switch">
+                <input
+                  class="form-check-input toggle"
+                  type="checkbox"
+                  role="switch"
+                  attr.id="{{ rowData.id }}"
+                  (focus)="verChecked(rowData.estatus,i)"
+                />
+                <label class="form-check-label gris ancho" for="{{ rowData.id }}"
+                  ><h6>Inactivo</h6></label
+                >
+              </div>
+            </ng-template>
+          </td>
+          <td class="no-border-x" scope="col">
+            <a href="detalle-recolectores">Ver Detalle</a>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <div class="white">
+      <br />
+      <br />
+    </div>
+    <!-- <div class="col-md-12">
+      <div class="white">
+        <p-paginator
+          [rows]="1"
+          [totalRecords]="1"
+          p-paginator-next="pi-angle-left"
+        ></p-paginator>
+      </div>
+    </div> -->
+    <br />
+  </div>
+
+  <ng-template #Vacio>
+    <table class="table text">
+      <thead>
+        <tr>
+          <th scope="col">Razón Social</th>
+          <th scope="col">RFC</th>
+          <th scope="col">Tipo de recolector</th>
+          <th scope="col">Estado de jurisdicción</th>
+          <th scope="col">Vigencia</th>
+          <th scope="col">Estatus</th>
+          <th scope="col">Detalle</th>
+        </tr>
+      </thead>
+    </table>
+    <div class="col-md-12">
+      <div class="bg-white">
+        <br />
+        <img class="image" src="/assets/static/Nothing.png" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="bg-white">
+        <h6 class="text nothing margin-b2">
+          Aun no tienes recolectores agregados.
+        </h6>
+        <br />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="white margin-b3">
+        <p-paginator
+          [rows]="1"
+          [totalRecords]="1"
+          p-paginator-next="pi-angle-left"
+        ></p-paginator>
+      </div>
+    </div>
+    <br />
+  </ng-template>
+  <!-- </div> -->
+  <!-- <ng-template #Carga>
+      <div class="bg-white">
+        <table class="table text bod">
+          <thead>
+            <tr>
+              <th scope="col">Razón Social</th>
+              <th scope="col">RFC</th>
+              <th scope="col">Tipo de recolector</th>
+              <th scope="col">Estado de jurisdicción</th>
+              <th scope="col">Vigencia</th>
+              <th scope="col">Estatus</th>
+              <th scope="col">Detalle</th>
+            </tr>
+          </thead>
+        </table>
+        <div class="col-mb-12">
+          <div class="bg-white">
+            <div class="progress center carga">
+              <div
+                id="barra"
+                class="progress-bar bg-secondary"
+                role="progressbar"
+                [style]="styleCont"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+            <h6 class="text textocarga margin-b">
+              La búsqueda tardará solo un momento
+            </h6>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="white margin-u">
+            <p-paginator
+              [rows]="1"
+              [totalRecords]="1"
+              p-paginator-next="pi-angle-left"
+            ></p-paginator>
+          </div>
+        </div>
+      </div>
+      <br />
+    </ng-template> -->
+</div>

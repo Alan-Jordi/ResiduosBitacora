@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ListadoResiduosComponent } from '../listado-residuos/listado-residuos.component';
 import { ServicioAlertas } from '../ServicioAlertas.service';
 
 @Component({
@@ -19,11 +18,11 @@ export class AltaResiduosComponent {
    }
 
   listaPagina(): void{
-    this.router.navigateByUrl('listado');
+    this.router.navigateByUrl('listado-residuos');
   }
   listaPaginaA(): void{
     this.servicioAlertas.boolAltaSet = true;
-    this.router.navigateByUrl('listado');
+    this.router.navigateByUrl('listado-residuos');
   }
   alert(): void{
     this.bool = true;

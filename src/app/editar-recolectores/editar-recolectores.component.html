@@ -1,0 +1,145 @@
+<div class="siz">
+  <div class="row shadow-sm white-bg trans">
+    <div class="col-md-12 mb-3 margin-l2 margin-t">
+      <h4>Editar residuo</h4>
+    </div>
+    <!-- <div class="col-md-1 margin-ln mt-1">
+      <button
+        type="button"
+        class="btn-close margin-l"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+        (click)="atrPagina()"
+      ></button>
+    </div> -->
+    <div class="col-md-3 margin-l2 mb-2">
+      <h6 class="no-margin grey">Editado por:</h6>
+      <h6 class="black2">MeztliXochitli Niño de León</h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">N<sup>o</sup> de colaborador:</h6>
+      <h6 class="black2">0000001</h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">Fecha y hora:</h6>
+      <h6 class="black2" [textContent]="date()"></h6>
+    </div>
+    <hr class="divider" />
+    <div class="col-md-12 margin-l2">
+      <h5>Categoría de residuo</h5>
+      <div class="input-group-append">
+        <select
+          class="form-select rounded-pill caja-texto caja2 gris"
+          aria-label="Default select example"
+          id="categoria"
+          (click)="value()"
+        >
+          <option selected value="0">Elige una categoría</option>
+          <option value="1">Artículos obsoletos</option>
+          <option value="2">Documentos obsoletos</option>
+          <option value="3">Peligrosos</option>
+          <option value="3">Sólidos Urbanos</option>
+          <option value="4">Valorizables</option>
+        </select>
+        <br />
+      </div>
+      <div *ngIf="bool">
+        <h5>Selecciona los residuos</h5>
+        <div class="input-group" id="res">
+          <div class="row">
+            <div class="col-md-4 margin-b10">
+              <div class="form-check margin-x">
+                <input
+                  class="form-check-input tamano"
+                  type="checkbox"
+                  id="vidrio"
+                  value="Vidrio, espejo"
+                  (click)="lista('vidrio', 'Vidrio, espejo')"
+                />
+                <label class="form-check-label" for="vidrio">
+                  <strong>Vidrio, espejo</strong>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4 margin-b10">
+              <div class="form-check margin-x">
+                <input
+                  class="form-check-input tamano"
+                  type="checkbox"
+                  id="fibras"
+                  value="Fibras sintéticas"
+                  (click)="lista('fibras', 'Fibras sintéticas')"
+                />
+                <label class="form-check-label" for="fibras">
+                  <strong>Fibras sintéticas</strong>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4 margin-b10">
+              <div class="form-check margin-x">
+                <input
+                  class="form-check-input tamano"
+                  type="checkbox"
+                  id="aluminio"
+                  value="Aluminio"
+                  (click)="lista('aluminio', 'Aluminio')"
+                />
+                <label class="form-check-label" for="aluminio">
+                  <strong>Aluminio</strong>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4 margin-b10">
+              <div class="form-check margin-x">
+                <input
+                  class="form-check-input tamano"
+                  type="checkbox"
+                  id="poliestireno"
+                  value="Poliestireno"
+                  (click)="lista('poliestireno', 'Poliestireno')"
+                />
+                <label class="form-check-label" for="poliestireno">
+                  <strong>Poliestireno</strong>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4 margin-b10">
+              <div class="form-check margin-x">
+                <input
+                  class="form-check-input tamano"
+                  type="checkbox"
+                  id="metal"
+                  value="Metal ferroso"
+                  (click)="lista('metal', 'Metal ferroso')"
+                />
+                <label class="form-check-label" for="metal">
+                  <strong>Metal Ferroso</strong>
+                </label>
+              </div>
+            </div>
+          </div>
+          <hr class="divider" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-mb-12 margin-lb">
+          <button
+            class="btn btn-primary shadows buscar margin-x margin-l"
+            (click)="atrPagina()"
+          >
+            <h6 class="centro">Cancelar</h6>
+          </button>
+          <button
+            class="btn btn-primary primary shadows margin-xr h-44"
+            id="next"
+            disabled
+            (click)="adelPagina()"
+          >
+            <h6 class="centro">Guardar cambios</h6>
+          </button>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>

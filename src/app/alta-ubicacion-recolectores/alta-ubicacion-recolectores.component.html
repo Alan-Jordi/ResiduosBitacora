@@ -1,0 +1,191 @@
+<div class="siz">
+    <div class="row shadow-sm trans">
+      <div class="col-md-12 mb-3 margin-l2 margin-t">
+        <h4>Agregar Estado</h4>
+      </div>
+      <!-- <div class="col-md-1 margin-ln mt-1">
+        <button
+          type="button"
+          class="btn-close margin-l"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+          (click)="atrPagina()"
+        ></button>
+      </div> -->
+      <div class="col-md-3 margin-l2 mb-2">
+        <h6 class="no-margin grey">Editado por:</h6>
+        <h6 class="black2">MeztliXochitli Niño de León</h6>
+      </div>
+      <div class="col-md-3">
+        <h6 class="no-margin grey">N<sup>o</sup> de colaborador:</h6>
+        <h6 class="black2">0000001</h6>
+      </div>
+      <div class="col-md-3">
+        <h6 class="no-margin grey">Fecha y hora:</h6>
+        <h6 class="black2" [textContent]="date()"></h6>
+      </div>
+      <hr class="divider" />
+      <div class="col-md-12 margin-l2">
+        <div class="row">
+          <div class="col-md-4 margin-l2">
+              <h6>Estado de jurisdicción</h6>
+          </div>
+          <div class="col-md-4">
+              <h6>Municipio de jurisdicción</h6>
+          </div>
+          <div class="col-md-3"></div>
+          <div class="input-group-append col-md-4">
+              <select
+                class="form-select rounded-pill caja-texto caja2 gris"
+                aria-label="Default select example"
+                id="estado"
+                (click)="valueEst()"
+              >
+                <option selected value="0">Selecciona una opción</option>
+                <option value="1">Aguascalientes</option>
+                <option value="2">Baja California</option>
+                <option value="3">Baja California Sur</option>
+                <option value="4">Campeche</option>
+                <option value="5">Chiapas</option>
+                <option value="6">Chihuahua</option>
+                <option value="7">Ciudad de México</option>
+                <option value="8">Coahuila</option>
+                <option value="9">Colima</option>
+                <option value="10">Durango</option>
+                <option value="11">Guanajuato</option>
+                <option value="12">Guerrero</option>
+                <option value="13">Hidalgo</option>
+                <option value="14">Jalisco</option>
+                <option value="15">México</option>
+                <option value="16">Michoacán</option>
+                <option value="17">Morelos</option>
+                <option value="18">Nayarit</option>
+                <option value="19">Nuevo León</option>
+                <option value="20">Oaxaca</option>
+                <option value="21">Puebla</option>
+                <option value="22">Querétaro</option>
+                <option value="23">Quintana Roo</option>
+                <option value="24">San Luis Potosí</option>
+                <option value="25">Sinaloa</option>
+                <option value="26">Sonora</option>
+                <option value="27">Tabasco</option>
+                <option value="28">Tamaulipas</option>
+                <option value="29">Tlaxcala</option>
+                <option value="30">Veracruz</option>
+                <option value="31">Yucatán</option>
+                <option value="32">Zacatecas</option>
+              </select>
+            </div>
+            <div class="input-group-append col-md-4">
+              <select
+                class="form-select rounded-pill caja-texto caja2 gris"
+                aria-label="Default select example"
+                id="municipio"
+                disabled
+                (click)="valueMun()"
+              >
+                <option selected value="0">Selecciona una opción</option>
+                <option value="1">Aguascalientes</option>
+                <option value="2">Baja California</option>
+                <option value="3">Baja California Sur</option>
+                <option value="4">Campeche</option>
+                <option value="5">Chiapas</option>
+                <option value="6">Chihuahua</option>
+                <option value="7">Ciudad de México</option>
+                <option value="8">Coahuila</option>
+                <option value="9">Colima</option>
+                <option value="10">Durango</option>
+                <option value="11">Guanajuato</option>
+                <option value="12">Guerrero</option>
+                <option value="13">Hidalgo</option>
+                <option value="14">Jalisco</option>
+                <option value="15">México</option>
+                <option value="16">Michoacán</option>
+                <option value="17">Morelos</option>
+                <option value="18">Nayarit</option>
+                <option value="19">Nuevo León</option>
+                <option value="20">Oaxaca</option>
+                <option value="21">Puebla</option>
+                <option value="22">Querétaro</option>
+                <option value="23">Quintana Roo</option>
+                <option value="24">San Luis Potosí</option>
+                <option value="25">Sinaloa</option>
+                <option value="26">Sonora</option>
+                <option value="27">Tabasco</option>
+                <option value="28">Tamaulipas</option>
+                <option value="29">Tlaxcala</option>
+                <option value="30">Veracruz</option>
+                <option value="31">Yucatán</option>
+                <option value="32">Zacatecas</option>
+              </select>
+            </div>
+            <div class="col-md-3 margin-b20">
+                <button
+                  class="btn btn-primary primary residuo shadows"
+                  id="ubi"
+                  disabled
+                  (click)="lista()"
+                >
+                  <h6 class="centro">Agregar ubicación</h6>
+                </button>
+              </div>
+        </div>
+        <div class="col-md-12">
+          <div *ngIf="bool">
+            <div class="bg-white round noWrap">
+              <br />
+              <h6 class="margin-l2 margin-y1 azul">UBICACIONES</h6>
+              <br />
+              <div *ngFor="let objeto of tabla; index as i">
+                <div *ngIf="i != 0">
+                  <h6 class="margin-l2 lineIn">{{ objeto.estado }}</h6>
+                  <br />
+                  <div class="row">
+                    <div *ngFor="let municipio of objeto.municipios; index as i" class="col-md-2">
+                          <div class="margin-box size-box" [ngClass]="num(i)">
+                              <div
+                                class="alert bordeazul alert-dismissible fade show"
+                                role="alert"
+                              >
+                                <div class="text tamano w" id={{objeto.estado}}>
+                                  {{ municipio }}
+                                </div>
+                                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="alert"
+                                  aria-label="Close"
+                                  (click) = "elimina(objeto.estado, municipio)"
+                                ></button>
+                              </div>
+                            </div>
+                    </div>
+                  </div>
+                  <hr class="divider2" />
+                </div>
+              </div>
+            </div>
+           
+          </div>
+          <div class="col-mb-12 margin-lb margin-b20">
+            <br>
+            <hr class="margin-lbn divider" />
+            <button
+              class="btn btn-primary shadows buscar margin-x margin-l"
+              (click)="atrPagina()"
+            >
+              <h6 class="centro">Cancelar</h6>
+            </button>
+            <button
+              class="btn btn-primary primary shadows margin-xr h-44"
+              id="next"
+              disabled
+              (click)="adelPagina()"
+            >
+              <h6 class="centro">Guardar cambios</h6>
+            </button>
+          </div>
+        </div>
+      </div>   
+    </div>
+  </div>

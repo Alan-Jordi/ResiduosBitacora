@@ -1,0 +1,179 @@
+<div class="row bod">
+  <div class="d-flex">
+    <div class="col-md-2 mb-3">
+      <h4>
+        <a href="alta-recolectores3" class="margin-r3">
+          <i class="fa-solid fa-circle-chevron-left fa-xs blue"></i>
+        </a>
+        Nuevo residuo
+      </h4>
+    </div>
+    <div class="col-md-10 mt-1">
+      <h6 class="blue">4/4</h6>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="col-md-3 mb-3 margin-l2">
+      <h6 class="no-margin grey">Capturado por:</h6>
+      <h6 class="black2">MeztliXochitli Niño de León</h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">N<sup>o</sup> de colaborador:</h6>
+      <h6 class="black2">0000001</h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">Fecha y hora:</h6>
+      <h6 class="black2" [textContent]="fecha"></h6>
+    </div>
+  </div>
+  <hr class="divider" />
+  <div class="d-flex">
+    <div class="col-md-6 margin-l2 shadow-r">
+      <br />
+      <br />
+      <h6>Ingresa los permisos del recolector.</h6>
+      <br />
+      <h5>Tipo de permiso</h5>
+      <div class="input-group-append">
+        <select
+          class="form-select rounded-pill caja-texto caja2 gris"
+          aria-label="Default select example"
+          id="tipopermiso"
+          (click)="lleno()"
+        >
+          <option selected value="0">
+            Seleccione el permiso para asignar la vigencia
+          </option>
+          <option value="1">Permiso de acopio</option>
+          <option value="2">Permiso de disposición de reciclaje</option>
+          <option value="3">Plan de manejo</option>
+          <option value="4">Permiso de transporte</option>
+          <option value="5">Otros permisos</option>
+        </select>
+        <br />
+        <h5>Permiso</h5>
+        <div class="input-group-append">
+          <input
+            type="text"
+            class="form-control rounded-pill caja-texto"
+            placeholder="Escribe el folio/número de permiso/registro"
+            id="permiso"
+            (keyup)="lleno()"
+          />
+          <br />
+          <h5>Vigencia de permiso</h5>
+          <div class="input-group d-flex">
+            <div class="d-flex">
+              <h6 class="margin-dh">Desde:</h6>
+              <div class="input-group-append margin-r2">
+                <input
+                  type="date"
+                  class="form-control rounded-pill caja-texto empty"
+                  placeholder="dd/mm/aa"
+                  id="desde"
+                  (change)="lleno()"
+                />
+                <!-- <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input
+                matInput [matDatepicker]="picker"
+                type="date"
+                class="form-control rounded-pill caja-texto"
+                placeholder="dd/mm/aa"
+                id="desde"
+                (keyup)="lleno()"
+                />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> -->
+              </div>
+            </div>
+            <div class="d-flex">
+              <h6 class="margin-dh">Hasta:</h6>
+              <div class="input-group-append">
+                <input
+                  type="date"
+                  class="form-control rounded-pill caja-texto empty"
+                  placeholder="dd/mm/aa"
+                  id="hasta"
+                  (change)="lleno()"
+                />
+                <br />
+              </div>
+            </div>
+          </div>
+          <div class="form-check d-flex">
+            <button
+              class="btn btn-primary shadows buscar margin-x"
+              (click)="limpiar()"
+            >
+              <h6>Limpiar</h6>
+            </button>
+            <button
+              class="btn btn-primary primary residuo shadows margin-xr"
+              id="ubi"
+              disabled
+              (click)="lista()"
+            >
+              <h6>Agregar permiso</h6>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="vr linea"></div>
+    </div>
+    <div class="col-md-5 margin-l2">
+      <div *ngIf="servicioInfo.boolGet">
+        <div
+          *ngFor="let objeto of tabla; index as i"
+          class="bg-white round noWrap"
+        >
+          <div *ngIf="i != 0">
+            <br />
+            <h6 class="margin-l margin-y1 azul">
+              {{ objeto.tipo.toUpperCase() }}
+            </h6>
+            <h5 class="margin-l lineIn">{{ objeto.permiso }}</h5>
+            <a (click)="editaPer(objeto.id)" class="margin-l3 h"
+              ><i class="fa-solid fa-pen blue fa-xs"></i>
+            </a>
+            <a (click)="eliminaPer(objeto.id)" class="margin-l2 h"
+              ><i class="fa-solid fa-trash blue fa-xs"></i>
+            </a>
+            <br />
+            <div class="accion vigente margin-l lineIn">
+              <h6 class="text-vig padding-t">Vigente</h6>
+            </div>
+            <h6 class="margin-l2 lineIn grey">
+              {{ objeto.desde }} - {{ objeto.hasta }}
+              <!-- {{ padTo2Digits(objeto.hasta.getDate()) }}/{{
+                padTo2Digits(objeto.hasta.getMonth() + 1)
+              }}/{{ objeto.hasta.getFullYear() }} -->
+            </h6>
+            <hr class="divider margin-l" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+</div>
+<div class="row margin-t mt-5">
+  <div *ngIf="servicioInfo.boolGet">
+    <div class="col-mb-12 d-flex flex-row-reverse">
+      <button
+        class="btn btn-primary residuo shadows margin-xr"
+        (click)="listadoPagina()"
+      >
+        <h6>Finalizar</h6>
+      </button>
+      <button
+        class="btn btn-primary shadows buscar margin-x"
+        (click)="atrPagina()"
+      >
+        <h6>Atrás</h6>
+      </button>
+    </div>
+  </div>
+</div>

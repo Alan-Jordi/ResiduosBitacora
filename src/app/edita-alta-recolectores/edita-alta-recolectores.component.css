@@ -1,0 +1,259 @@
+.trans{
+    background-color: white;
+    border-radius: 15px;
+}
+.siz{
+    width: 661px;
+    height: 790px;
+    margin-top: 1rem;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.empty {
+    color: #999;
+}
+.centro{
+    margin: auto;
+}
+.h-44{
+    height: 44px;
+}
+.bod{
+    background-color: #f7f8fa;
+}
+.divider{
+    border: solid 1px #dcdcdc;
+    margin-bottom: 10px;
+    width: 686px;
+}
+.nowrap {
+    white-space: nowrap;
+  }
+.img-margin{
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.no-margin{
+    margin: 0;
+}
+.grey{
+    color: #6a6a6a
+}
+.black2{
+    color: #1e1e1e;
+}
+.caja-texto{
+    border-color: #dcdcdc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 40px;
+}
+.caja-texto::placeholder{
+    text-align: left;
+    color: #949494;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.caja-texto::focus{
+    outline: none !important;
+    box-shadow: 0 0 10px #dcdcdc;
+}
+.margin-l{
+    margin-left: 25px;
+}
+.margin-r{
+    margin-left: -15px;
+}
+.margin-b{
+    margin-bottom: 250px;
+}
+.margin-b1{
+    margin-bottom: 1px;
+}
+.margin-t{
+    margin-top: 10px;
+}
+.margin-xr{
+    margin-left: 10px;
+    margin-right: 30px;
+}
+.margin-x{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+.margin-y1{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.margin-l2{
+    margin-left: 10px;
+}
+.margin-l3{
+    margin-left: 45px;
+}
+.margin-lb{
+    margin-left: 370px;
+}
+.margin-ln{
+    margin-left: -22px;
+}
+.margin-dh{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.margin-r2{
+    margin-right: 10px;
+}
+.margin-box{
+    margin-right: 23px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.buscar{
+    color: #0762ae;
+    border: none;
+    border-radius: 15px;
+    width: 100px;
+    background-color: white;
+}
+.buscar:focus{
+    color: white;
+    background-color: #0762ae;
+}
+.residuo{
+    width: 164px;
+    height: 40px;
+    background-color: #0062ae;
+    border-color: #0062ae;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12);
+}
+.border-s{
+    border-width: 2px;
+    border-color: #0762ae;
+}
+.form-check-input:checked {
+    background-color: #0762ae;
+}
+.red{
+    border-radius: 15px;
+    background-color: #ffd8c7;
+    color: #7c260f;
+    padding-right: 8px;
+}
+.blue{
+    color: #0762ae;
+}
+.azul{
+    color: #009ed9;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.text{
+    text-align: center;
+    padding-right: 20px;
+}
+.shadows{
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.075)!important;
+}
+.shadows:focus{
+    box-shadow: none;
+}
+.buscar{
+    background-color: white;
+    color: #0762ae;
+    border: none;
+    width: 96px;
+    height: 44px;
+    border-radius: 15px;
+    margin-left: -19px;
+    z-index: 3;
+}
+.buscar:focus{
+    color: white;
+    background-color: #0762ae;
+}
+.round{
+    border-radius: 30px;
+}
+.linea{
+    height: 400px;
+    color: transparent;
+}
+.shadow-r{
+    box-shadow: 5px 10px 10px 0 rgba(137, 137, 137, 0.1);
+    margin-top: -25px;
+    margin-bottom: -24px;
+}
+.tamano{
+    width: 20px;
+    height: 20px;
+    border-color: #6835b5;
+    border-width: 2px;
+}
+.form-check-input:checked {
+    background-color: #6835b5;
+    border-color: #6835b5;
+}
+.rec{
+    color: #fff;
+    background-color: #37b230;
+    width: 75px;
+}
+.gris{ 
+    color: #949494;
+}
+.norec{
+    color: #fff;
+    background-color: #d70d2c;
+    width: 86px;
+}
+.text-vig{
+    text-align: center;
+    font-size: 12px;
+}
+.accion{
+    border-radius: 4px;
+    height: 21px;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.noWrap{
+    white-space: nowrap;
+}
+.lineIn{
+    display: inline-block;
+}
+.primary{
+    background-color: #0062ae;
+    color: white;
+    border-radius: 15px;
+    cursor:pointer;
+}
+.primary:focus{
+    background: none;
+    background-color: #0062ae;
+    color: white;
+    text-indent: 0%;
+    box-shadow: none;
+}
+::ng-deep.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--bs-modal-color);
+    pointer-events: auto;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: none;
+    border-radius: var(--bs-modal-border-radius);
+    outline: 0;
+}

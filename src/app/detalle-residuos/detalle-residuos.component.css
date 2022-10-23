@@ -16,8 +16,28 @@
 .no-margin{
     margin: 0;
 }
+.padding-t{
+    padding-top: 2px;
+}
 .grey{
     color: #6a6a6a
+}
+.dropdown{
+    background-color: #ececed;
+    border-color: #ececed;
+    border-radius: 15px;
+    color: #0062ae;
+    font-weight: bold;
+    text-align: center;
+}
+.size-dd{
+    width: 132px;
+}
+.size-dd2{
+    width: 163px;
+}
+.h:hover{
+    cursor: pointer;
 }
 .black2{
     color: #1e1e1e;
@@ -32,6 +52,9 @@
 }
 .margin-l{
     margin-left: 42px;
+}
+.margin-l2{
+    margin-left: 10px;
 }
 .margin-b{
     margin-bottom: 20px;
@@ -60,9 +83,18 @@
     margin-left: 0px;
     margin-right: 0px;
 }
+.margin-rs{
+    margin-right: 20px;
+}
+.margin-r{
+    margin-right: 26px;
+}
 .padding-x0{
     padding-left: 0px;
     padding-right: 0px;
+}
+.line-in{
+    display: inline;
 }
 .buscar{
     color: #0762ae;
@@ -189,4 +221,22 @@
 background: #0062af;
 border-color: #0062af;
 color: #ffffff;
+}
+::ng-deep.p-datatable .p-datatable-tbody > tr > td {
+    text-align: center !important;
+    border: none;
+    border-bottom: 1px solid #c8c8c8;
+    border-width: 1px;
+    padding: 0.571rem 0.857rem;
+}
+::ng-deep.p-datatable .p-datatable-thead > tr > th {
+    text-align: center;
+    padding: 0.571rem 0.857rem;
+    border: none;
+    border-bottom: 1px solid #c8c8c8;
+    border-width: 1px 1px 1px 1px;
+    font-weight: 700;
+    color: #333333;
+    background: #f4f4f4;
+    transition: background-color 0.2s, box-shadow 0.2s;
 }

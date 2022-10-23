@@ -43,13 +43,32 @@ export class DetalleResiduosComponent {
       nombre:'MeztliXochitli Niño de León', 
       numero:'000001', fecha:'23/03/2022', 
       hora:'01:11'
-    }
+    },
+    {
+      accion:'Activó', 
+      nombre:'MeztliXochitli Niño de León', 
+      numero:'000001', fecha:'23/03/2022', 
+      hora:'01:11'
+    },
+    {
+      accion:'Activó', 
+      nombre:'MeztliXochitli Niño de León', 
+      numero:'000001', fecha:'23/03/2022', 
+      hora:'01:11'
+    },
     
+  ];
+  column = [
+    {field: 'accion', header: 'accion'},
+    {field: 'nombre', header: 'nombre'},
+    {field: 'numero', header: 'numero'},
+    {field: 'fecha', header: 'fecha'},
+    {field: 'hora', header: 'hora'},
   ];
   constructor() { }
 
   getObjeto(i:number) {
-    var s = this.tabla[i].accion;
+    let s = this.tabla[i].accion;
     switch (s) {
       case "Generó":
         s = 'genero'
@@ -68,6 +87,11 @@ export class DetalleResiduosComponent {
     }
     return s;
 
+  }
+  textDrop(id:string, newTxt:string){
+    let dd = document.getElementById(id);
+    if(dd != null) dd.innerHTML = newTxt;
+    console.log(dd);
   }
 
   

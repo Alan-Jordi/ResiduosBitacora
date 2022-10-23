@@ -1,108 +1,126 @@
 <div class="row bod">
-  <div class="col-md-7 mb-3">
-    <h4>
-      <a href="listado"
-        ><img class="img-margin" src="/assets/static/iconChevLeft.png"
-      /></a>
-      Nuevo residuo
-    </h4>
-  </div>
-  <div class="col-md-5 col-md-offset-1">
-    <div *ngIf="bool">
-      <div class="margin-box size-box">
-        <div class="alert red alert-dismissible fade show text" role="alert">
-          <strong class="text"
-            >¡Atención! Ingrese la densidad en kg/m<sup>3</sup>.</strong
-          >
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
+  <div class="d-flex">
+    <div class="col-md-7 mb-3">
+      <h4>
+        <a href="listado-residuos"
+          ><img class="img-margin" src="/assets/static/iconChevLeft.png"
+        /></a>
+        Nuevo residuo
+      </h4>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+      <div *ngIf="bool">
+        <div class="margin-box size-box">
+          <div class="alert red alert-dismissible fade show text" role="alert">
+            <strong class="text"
+              >¡Atención! Ingrese la densidad en kg/m<sup>3</sup>.</strong
+            >
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-3 mb-3 margin-l2">
-    <h6 class="no-margin grey">Capturado por:</h6>
-    <h6 class="black2">MeztliXochitli Niño de León</h6>
-  </div>
-  <div class="col-md-3">
-    <h6 class="no-margin grey">N<sup>o</sup> de colaborador:</h6>
-    <h6 class="black2">0000001</h6>
-  </div>
-  <div class="col-md-3">
-    <h6 class="no-margin grey">Fecha y hora:</h6>
-    <h6 class="black2" [textContent]="fecha"></h6>
+  <div class="d-flex">
+    <div class="col-md-3 mb-3 margin-l2">
+      <h6 class="no-margin grey">Capturado por:</h6>
+      <h6 class="black2">MeztliXochitli Niño de León</h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">N<sup>o</sup> de colaborador:</h6>
+      <h6 class="black2">0000001</h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">Fecha y hora:</h6>
+      <h6 class="black2" [textContent]="fecha"></h6>
+    </div>
   </div>
   <hr class="divider" />
   <div class="col-md-12 mb-5 margin-l2">
     <h6>Captura la información para un nuevo residuo.</h6>
   </div>
-  <div class="col-md-2 margin-b">
-    <h6 class="margin-l2">Categoría de residuo:</h6>
-    <select
-      class="form-select rounded-pill caja-texto grey margin-l2"
-      aria-label="Default select example"
-    >
-      <option selected>Elige una categoría</option>
-      <option value="1">Artículos obsoletos</option>
-      <option value="2">Documentos obsoletos</option>
-      <option value="3">Peligrosos</option>
-      <option value="4">Sólidos urbanos</option>
-      <option value="5">Valorizables</option>
-      <option value="6">Otros</option>
-    </select>
+  <div class="d-flex">
+    <div class="col-md-2">
+      <h6 class="margin-l2">Categoría de residuo:</h6>
+    </div>
+    <div class="col-md-2">
+      <h6>Tipo de residuo:</h6>
+    </div>
+    <div class="col-md-3">
+      <h6>Densidad natural (kg/m<sup>3</sup>):</h6>
+    </div>
+    <div class="col-md-3">
+      <h6>Densidad compactada (kg/m<sup>3</sup>):</h6>
+    </div>
+    <div class="col-md-2">
+      <h6>Reciclable:</h6>
+    </div>
   </div>
-  <div class="col-md-2">
-    <h6>Tipo de residuo:</h6>
-    <input
-      type="text"
-      class="form-control rounded-pill caja-texto"
-      placeholder="Video, metal, plástico"
-    />
-  </div>
-  <div class="col-md-3">
-    <h6>Densidad natural (kg/m<sup>3</sup>):</h6>
-    <input
-      type="text"
-      class="form-control rounded-pill caja-texto"
-      placeholder="Densidad de residuo kg/m³"
-      (focus)="alert()"
-    />
-  </div>
-  <div class="col-md-3">
-    <h6>Densidad compactada (kg/m<sup>3</sup>):</h6>
-    <input
-      type="text"
-      class="form-control rounded-pill caja-texto"
-      placeholder="Densidad de residuo kg/m³"
-      (focus)="alert()"
-    />
-  </div>
-  <div class="col-md-2">
-    <h6>Reciclable:</h6>
-    <div class="d-flex">
-      <div class="form-check margin-l">
-        <input
-          class="form-check-input border-s"
-          type="checkbox"
-          id="si-check-residuos"
-          (click)="focusRadio('si-check-residuos')"
-          checked
-        />
+  <div class="d-flex">
+    <div class="col-md-2 margin-b">
+      <select
+        class="form-select rounded-pill caja-texto grey margin-l2"
+        aria-label="Default select example"
+      >
+        <option selected>Elige una categoría</option>
+        <option value="1">Artículos obsoletos</option>
+        <option value="2">Documentos obsoletos</option>
+        <option value="3">Peligrosos</option>
+        <option value="4">Sólidos urbanos</option>
+        <option value="5">Valorizables</option>
+        <option value="6">Otros</option>
+      </select>
+    </div>
+    <div class="col-md-2 margin-b">
+      <input
+        type="text"
+        class="form-control rounded-pill caja-texto"
+        placeholder="Video, metal, plástico"
+      />
+    </div>
+    <div class="col-md-3 margin-b">
+      <input
+        type="text"
+        class="form-control rounded-pill caja-texto width-2"
+        placeholder="Densidad de residuo kg/m³"
+        (focus)="alert()"
+      />
+    </div>
+    <div class="col-md-3 margin-b">
+      <input
+        type="text"
+        class="form-control rounded-pill caja-texto"
+        placeholder="Densidad de residuo kg/m³"
+        (focus)="alert()"
+      />
+    </div>
+    <div class="col-md-2">
+      <div class="d-flex">
+        <div class="form-check margin-l">
+          <input
+            class="form-check-input border-s"
+            type="checkbox"
+            id="si-check-residuos"
+            (click)="focusRadio('si-check-residuos')"
+            checked
+          />
         <label class="form-check-label" for="si-check-residuos"> Sí </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input border-s"
-          type="checkbox"
-          value=""
-          id="no-check-residuos"
-          (click)="focusRadio('no-check-residuos')"
-        />
-        <label class="form-check-label" for="no-check-residuos"> No </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input border-s"
+            type="checkbox"
+            value=""
+            id="no-check-residuos"
+            (click)="focusRadio('no-check-residuos')"
+          />
+          <label class="form-check-label" for="no-check-residuos"> No </label>
+        </div>
       </div>
     </div>
   </div>
@@ -111,13 +129,13 @@
 <div class="row margin-t">
   <div class="col-mb-12 d-flex flex-row-reverse">
     <button class="btn btn-primary residuo shadows margin-xr" (click)="listaPaginaA()">
-      <h6>Crear residuo</h6>
+      <h6 class="centro">Crear residuo</h6>
     </button>
     <button
       class="btn btn-primary shadow buscar margin-x"
       (click)="listaPagina()"
     >
-      <h6>Atrás</h6>
+      <h6 class="centro">Atrás</h6>
     </button>
   </div>
 </div>

@@ -1,0 +1,246 @@
+.bod{
+    background-color: #f7f8fa;
+}
+.divider{
+    border: solid 1px #dcdcdc;
+    margin-bottom: 20px;
+}
+.nowrap {
+    white-space: nowrap;
+  }
+.img-margin{
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.no-margin{
+    margin: 0;
+}
+.grey{
+    color: #6a6a6a
+}
+.black2{
+    color: #1e1e1e;
+}
+.azul{
+    color: #009ed9;
+}
+.caja-texto{
+    border-color: #dcdcdc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 40px;
+}
+.caja-texto::placeholder{
+    text-align: left;
+    color: #949494;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.caja-texto::focus{
+    outline: none !important;
+    box-shadow: 0 0 10px #dcdcdc;
+}
+.margin-l{
+    margin-left: 25px;
+}
+.margin-r{
+    margin-left: -15px;
+}
+.margin-r2{
+    margin-right: 10px;
+}
+.margin-b{
+    margin-bottom: 250px;
+}
+.margin-b1{
+    margin-bottom: 1px;
+}
+.margin-t{
+    margin-top: 10px;
+}
+.margin-t2{
+    margin-top: 3px;
+}
+.margin-xr{
+    margin-left: 10px;
+    margin-right: 30px;
+}
+.margin-x{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+.margin-y1{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.margin-l2{
+    margin-left: 10px;
+}
+.margin-ln{
+    margin-left: -10px;
+}
+.margin-box{
+    margin-top: 20px;
+}
+.buscar{
+    color: #0762ae;
+    border: none;
+    border-radius: 15px;
+    width: 100px;
+    background-color: white;
+}
+.buscar:focus{
+    color: white;
+    background-color: #0762ae;
+}
+.residuo{
+    width: 164px;
+    height: 40px;
+    background-color: #37b230;
+    border-color: #37b230;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12);
+}
+.border-s{
+    border-width: 2px;
+    border-color: #0762ae;
+}
+.form-check-input:checked {
+    background-color: #0762ae;
+}
+.red{
+    border-radius: 15px;
+    background-color: #ffd8c7;
+    color: #7c260f;
+    padding-right: 8px;
+}
+.blue{
+    color: #0762ae;
+}
+.primary{
+    background-color: #0762ae;
+    border-color: #0762ae;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.text{
+    text-align: center;
+    padding-right: 20px;
+}
+.shadows{
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.075)!important;
+}
+.shadows:focus{
+    box-shadow: none;
+}
+.buscar{
+    background-color: white;
+    color: #0762ae;
+    border: none;
+    width: 96px;
+    height: 44px;
+    border-radius: 15px;
+    margin-left: -19px;
+    z-index: 3;
+}
+.buscar:focus{
+    color: white;
+    background-color: #0762ae;
+}
+.round{
+    border-radius: 30px;
+}
+.linea{
+    height: 400px;
+    color: transparent;
+}
+.shadow-r{
+    box-shadow: 5px 10px 10px 0 rgba(137, 137, 137, 0.1);
+    margin-top: -25px;
+    margin-bottom: -24px;
+}
+.rec{
+    color: #fff;
+    background-color: #37b230;
+    width: 75px;
+}
+.norec{
+    color: #fff;
+    background-color: #d70d2c;
+    width: 100px;
+}
+.accion{
+    border-radius: 4px;
+    height: 21px;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.w{
+    font-weight: 500;
+}
+.noWrap{
+    white-space: nowrap;
+}
+.lineIn{
+    display: inline-block;
+}
+.bordeazul{
+    border-radius: 4px;
+    border: solid 1px #399ed9;
+}
+.size-box{
+    height: 50px !important;
+}
+.tamano{
+    font-size: 12px;
+    text-align: left;
+    margin-left: 5px;
+}
+.tamano2{
+    width: 20px;
+    height: 20px;
+    border-color: #6835b5;
+    border-width: 2px;
+}
+.form-check-input:checked {
+    background-color: #6835b5;
+    border-color: #6835b5;
+}
+
+.alert{
+    --bs-alert-bg: transparent;
+    --bs-alert-padding-x: 0rem;
+    --bs-alert-padding-y: 0rem;
+    --bs-alert-margin-bottom: 1rem;
+    --bs-alert-color: inherit;
+    --bs-alert-border-color: transparent;
+    --bs-alert-border: 1px solid var(--bs-alert-border-color);
+    --bs-alert-border-radius: 0.375rem;
+    position: relative;
+    padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
+    margin-bottom: var(--bs-alert-margin-bottom);
+    color: var(--bs-alert-color);
+    background-color: var(--bs-alert-bg);
+}
+.alert-dismissible .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0;
+}
+.btn-close{
+    width: .75rem;
+    height: .75rem;
+    margin-top: 4px;
+    margin-right: 8px;
+}
+.gris{ 
+    color: #949494;
+}

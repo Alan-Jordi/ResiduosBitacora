@@ -1,0 +1,584 @@
+<div class="row bod">
+  <div class="d-flex">
+    <div class="col-md-7 mb-5 mt-1">
+      <h4 class="margin-b0">
+        <a href="listado-recolectores">
+          <i class="fa-solid fa-circle-chevron-left fa-xs blue"></i>
+        </a>
+        Detalle CIDSA
+      </h4>
+    </div>
+    <div
+      class="col-md-3 mt-2 margin-lsup"
+      *ngIf="
+        !boolMod &&
+          !boolElim &&
+          !boolModUbi &&
+          !boolElimUbi &&
+          !boolModPer &&
+          !boolElimPer;
+        else AlertaMod
+      "
+    >
+      <div>
+        <button class="btn btn-primary carmesi-but" (click)="elimina()">
+          <h6 class="centro">Eliminar recolector</h6>
+        </button>
+      </div>
+    </div>
+    <ng-template #AlertaMod>
+      <div class="col-md-5" *ngIf="boolMod">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              El residuo [nombre residuo] se editó correctamente
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolModUbi">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              La ubicación [nombre de ubicación] se editó correctamente
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolModPer">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              El permiso [nombre de permiso] se editó correctamente
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolElim">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              <strong>Atención!</strong> El residuo [nombre residuo] ha sido
+              eliminado
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolElimUbi">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              <strong>Atención!</strong> La ubicación [nombre de ubicación] ha
+              sido eliminado
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolElimPer">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              <strong>Atención!</strong> El permiso [nombre de permiso] ha sido
+              eliminado
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="d-flex">
+    <div class="col-md-2 mb-3 margin-l2">
+      <p class="no-margin">Capturado por:</p>
+      <h6 class="black2">CIDSA</h6>
+    </div>
+    <div class="col-md-3">
+      <p class="no-margin">Razón social:</p>
+      <h6 class="black2">Cid-Sa Control Industrial de Desechos</h6>
+    </div>
+    <div class="col-md-7">
+      <p class="no-margin">RFC:</p>
+      <h6 class="black2">XAXX010101XX</h6>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="col-md-2 mx-0 padding-x0 h margin-b" (click)="clase('res')">
+      <h5 class="blue on text margin-x0" id="res">Residuos</h5>
+    </div>
+    <div class="col-md-3 mx-0 padding-x0 h margin-b" (click)="clase('jur')">
+      <h5 class="blue off text margin-x0" id="jur">Jurisdicción</h5>
+    </div>
+    <div class="col-md-2 mx-0 padding-x0 h margin-b" (click)="clase('per')">
+      <h5 class="blue off text margin-x0" id="per">Permisos</h5>
+    </div>
+    <div class="col-md-2 mx-0 padding-x0 h margin-b" (click)="clase('cont')">
+      <h5 class="blue off text margin-x0" id="cont">Contacto</h5>
+    </div>
+    <div class="col-md-3 mx-0 padding-x0 h margin-b" (click)="clase('acop')">
+      <h5 class="blue off text margin-x0" id="acop">Acciones operativas</h5>
+    </div>
+  </div>
+  <!-- <div class="col-md-12 margin-t0">
+        <h6 class="margin-x0 margin-y1 azul">TIPO DE RESIDUO</h6>
+    </div> -->
+  <div *ngIf="focus == 'res'; else Otro1">
+    <div class="row bod">
+      <div class="col-md-3 margin-lres">
+        <h6 class="margin-x0 azul">TIPO DE RESIDUO</h6>
+        <hr class="divider" />
+        <div class="d-flex justify-content-between align-items-center">
+          <h5>Peligrosos</h5>
+          <div class="d-flex align-items-center h">
+            <a (click)="editaRes()"
+              ><i class="fa-solid fa-pen blue fa-xs"></i>
+            </a>
+            <a (click)="eliminaRes()" class="margin-ls h"
+              ><i class="fa-solid fa-trash blue fa-xs"></i>
+            </a>
+          </div>
+        </div>
+        <br />
+        <hr class="divider" />
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="linein">Sólidos Urbanos</h5>
+          <div class="d-flex align-items-center h">
+            <a (click)="editaRes()"
+              ><i class="fa-solid fa-pen blue fa-xs"></i>
+            </a>
+            <a (click)="eliminaRes()" class="margin-ls h"
+              ><i class="fa-solid fa-trash blue fa-xs"></i>
+            </a>
+          </div>
+        </div>
+        <br />
+        <hr class="divider" />
+        <button class="btn btn-primary residuo shadows" (click)="altaRes()">
+          <h6 class="centro">Agregar residuo</h6>
+        </button>
+      </div>
+      <div class="bod col-md-9 margin-lresN">
+        <table class="table margin-b0">
+          <thead>
+            <tr class="tr-size">
+              <th class="ver-align" scope="col">Residuo</th>
+              <th class="ver-align" scope="col">Densidad real</th>
+              <th class="ver-align" scope="col">Densidad compactada</th>
+              <th class="ver-align" scope="col">Reciclaje</th>
+            </tr>
+          </thead>
+          <tbody class="tabla bg-white">
+            <tr *ngFor="let objecto of tabla; index as i" class="tr-size">
+              <td class="ver-align" scope="col">{{ objecto.residuo }}</td>
+              <td class="ver-align" scope="col">
+                {{ objecto.denReal }} kg/m<sup>3</sup>
+              </td>
+              <td class="ver-align" scope="col">
+                {{ objecto.denComp }} kg/m<sup>3</sup>
+              </td>
+              <td class="ver-align" scope="col">
+                <div class="accion" [ngClass]="reciclable(i)">
+                  <h6 class="white padding-t">{{ objecto.reciclaje }}</h6>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+  <ng-template #Otro1>
+    <div *ngIf="focus == 'jur'; else Otro2">
+      <div class="row bod">
+        <div class="col-md-11 margin-l24">
+          <div class="bg-white round margin-b">
+            <br />
+            <h6 class="azul margin-lresc">UBICACIONES</h6>
+            <hr class="divider" />
+            <div *ngFor="let ubi of ubicaciones">
+              <div
+                class="d-flex justify-content-between align-items-center margin-r"
+              >
+                <h5 class="margin-lresc">{{ ubi.estado }}</h5>
+                <div class="d-flex align-items-center">
+                  <a (click)="editaJur(ubi.id)" class="h"
+                    ><i class="fa-solid fa-pen blue fa-xs"></i>
+                  </a>
+                  <a (click)="eliminaJur(ubi.id)" class="margin-ls h"
+                    ><i class="fa-solid fa-trash blue fa-xs"></i>
+                  </a>
+                </div>
+              </div>
+              <br />
+              <ng-container
+                class="nowrap"
+                *ngFor="let mun of ubi.municipios; index as i"
+              >
+                <ng-container *ngIf="i == 0; else Mun">
+                  <h6 class="linein margin-lresc grey">{{ mun }}</h6>
+                </ng-container>
+                <ng-template #Mun>
+                  <h6 class="linein grey margin-l1">{{ mun }}</h6>
+                </ng-template>
+                <ng-container *ngIf="i != ubi.municipios.length - 1">
+                  <h6 class="linein grey">,</h6>
+                </ng-container>
+              </ng-container>
+              <br />
+              <hr class="divider" />
+            </div>
+            <button
+              class="btn btn-primary residuo shadows margin-lresc margin-b"
+              (click)="altaJur()"
+            >
+              <h6 class="centro">Agregar Estado</h6>
+            </button>
+          </div>
+        </div>
+        <br />
+
+        <div class="form-check margin-l24">
+          <input
+            class="form-check-input tamano2 margin-lresc margin-r"
+            type="checkbox"
+            id="todo"
+            value="toda"
+          />
+          <h6 class="margin-ts">
+            Este recolector puede operar en toda la República Mexicana
+          </h6>
+        </div>
+      </div>
+    </div>
+    <ng-template #Otro2>
+      <div *ngIf="focus == 'per'; else Otro3">
+        <div class="row bod">
+          <ng-container
+            class="d-flex"
+            *ngFor="let permiso of permisos; index as i"
+          >
+            <div class="col-md-4">
+              <div class="bg-white round margin-b alto">
+                <br />
+                <h6 class="azul margin-lresc">
+                  {{ permiso.tipo.toUpperCase() }}
+                </h6>
+                <div class="nowrap">
+                  <h5 class="linein margin-lresc">{{ permiso.nombre }}</h5>
+                  <br />
+                  <div class="accion margin-lresc linein" [ngClass]="vig(i)">
+                    <h6 class="text-vig lineIn padding-t">
+                      {{ permiso.vigencia }}
+                    </h6>
+                  </div>
+                  <h6 class="margin-ls linein grey">
+                    {{ permiso.vigInicio }} - {{ permiso.vigFin }}
+                  </h6>
+                  <a (click)="editaPer(permiso.id)" class="margin-ls linein h"
+                    ><i class="fa-solid fa-pen blue fa-xs"></i>
+                  </a>
+                  <a (click)="eliminaPer(permiso.id)" class="margin-ls linein h"
+                    ><i class="fa-solid fa-trash blue fa-xs"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <div class="col-md-4">
+            <div class="bg-white round margin-b alto h">
+              <a class="ref" (click)="altaPer()"
+                ><h5 class="clic text pad-t">Agregar permiso</h5></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #Otro3>
+        <div *ngIf="focus == 'cont'; else Otro4">
+          <div class="bod">
+            <div class="">
+              <div class="row bg-white round shadow-sm margin-b">
+                <br />
+                <h6 class="azul margin-l margin-b">INFORMACIÓN DEL CONTACTO</h6>
+                <div class="col-md-4">
+                  <h6 class="margin-l margin-y1 grey">
+                    Nombre contacto operacional:
+                  </h6>
+                  <h5 class="margin-l margin-b2">Arath Lezcano</h5>
+                </div>
+                <div class="col-md-4">
+                  <h6 class="margin-l margin-y1 grey">
+                    Nombre del contacto comercial o cuenta clave:
+                  </h6>
+                  <h5 class="margin-l margin-b2">Nombre del contacto</h5>
+                </div>
+                <div class="col-md-4">
+                  <h6 class="margin-l margin-y1 grey">Correo electrónico:</h6>
+                  <h5 class="margin-l margin-b2">correo@ejemplo.com</h5>
+                </div>
+                <div class="col-md-4">
+                  <h6 class="margin-l margin-y1 grey">
+                    Nombre del contacto principal:
+                  </h6>
+                  <h5 class="margin-l margin-b2">Cristian Osorio</h5>
+                </div>
+                <div class="col-md-4">
+                  <h6 class="margin-l margin-y1 grey">
+                    Celular del contacto principal:
+                  </h6>
+                  <h5 class="margin-l margin-b2">55 5555 5555</h5>
+                </div>
+                <div class="col-md-4">
+                  <h6 class="margin-l margin-y1 grey">
+                    Teléfono fijo del contacto principal:
+                  </h6>
+                  <h5 class="margin-l margin-y1 margin-b2">55 5555 5555</h5>
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+        <ng-template #Otro4>
+          <div *ngIf="focus == 'acop'" class="row">
+            <div class="d-flex">
+              <div class="col-md-5">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="btn-group h" dropdown>
+                      <button
+                        id="button-basic"
+                        dropdownToggle
+                        type="button"
+                        class="btn btn-primary dropdown-toggle dropdown size-dd"
+                        aria-controls="dropdown-basic"
+                      >
+                        <div class="margin-rs linein" id="accion-dd">
+                          Acción
+                        </div>
+                        <span class="caret"></span>
+                      </button>
+                      <ul
+                        id="dropdown-basic"
+                        *dropdownMenu
+                        class="dropdown-menu"
+                        role="menu"
+                        aria-labelledby="button-basic"
+                      >
+                        <li
+                          role="menuitem"
+                          (click)="textDrop('accion-dd', 'Generó')"
+                        >
+                          <a class="dropdown-item">Generó</a>
+                        </li>
+                        <li
+                          role="menuitem"
+                          (click)="textDrop('accion-dd', 'Editó')"
+                        >
+                          <a class="dropdown-item">Editó</a>
+                        </li>
+                        <li
+                          role="menuitem"
+                          (click)="textDrop('accion-dd', 'Activó')"
+                        >
+                          <a class="dropdown-item">Activó</a>
+                        </li>
+                        <li
+                          role="menuitem"
+                          (click)="textDrop('accion-dd', 'Desactivó')"
+                        >
+                          <a class="dropdown-item">Desactivó</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="input-group-append">
+                    <div class="btn-group margin-l10 h" dropdown>
+                      <button
+                        id="button-basic"
+                        dropdownToggle
+                        type="button"
+                        class="btn btn-primary dropdown-toggle dropdown size-dd2"
+                        aria-controls="dropdown-basic"
+                      >
+                        <div class="margin-r linein" id="accion-dd2">
+                          Este mes
+                        </div>
+                        <span class="caret"></span>
+                      </button>
+                      <ul
+                        id="dropdown-basic"
+                        *dropdownMenu
+                        class="dropdown-menu"
+                        role="menu"
+                        aria-labelledby="button-basic"
+                      >
+                        <li
+                          role="menuitem"
+                          (click)="textDrop('accion-dd2', 'Hace 6 meses')"
+                        >
+                          <a class="dropdown-item">Hace 6 meses</a>
+                        </li>
+                        <li
+                          role="menuitem"
+                          (click)="textDrop('accion-dd2', 'Hace 1 año')"
+                        >
+                          <a class="dropdown-item">Hace 1 año</a>
+                        </li>
+                        <li
+                          role="menuitem"
+                          (click)="textDrop('accion-dd2', 'Hace 2 años')"
+                        >
+                          <a class="dropdown-item">Hace 2 años</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7 d-flex flex-row-reverse">
+                <button class="btn btn-primary primary mx-3">
+                  <i class="fa fa-cloud-arrow-down"></i>
+                  PDF
+                </button>
+                <button class="btn btn-primary primary">
+                  <i class="fa fa-cloud-arrow-down"></i>
+                  CSV
+                </button>
+              </div>
+            </div>
+            <div class="bod margin-t">
+              <p-table
+                [columns]="column"
+                [value]="acciones"
+                [paginator]="true"
+                [rows]="7"
+                [totalRecords]="acciones.length"
+                [pageLinks]="3"
+                class="table margin-b0"
+              >
+                <ng-template pTemplate="header">
+                  <tr class="tr-size">
+                    <th class="ver-align" scope="col">Acción</th>
+                    <th class="ver-align" scope="col">Descripción</th>
+                    <th class="ver-align" scope="col">Colaborador</th>
+                    <th class="ver-align" scope="col">Fecha</th>
+                    <th class="ver-align" scope="col">Hora</th>
+                  </tr>
+                </ng-template>
+                <ng-template
+                  pTemplate="body"
+                  let-rowData
+                  let-columns="columns"
+                  let-i="rowIndex"
+                  class="tabla bg-white"
+                >
+                  <tr class="tr-size ver-align">
+                    <td class="ver-align" scope="col">
+                      <div class="accion" [ngClass]="getObjeto(i)">
+                        <h6 class="white padding-t">{{ rowData.accion }}</h6>
+                      </div>
+                    </td>
+                    <td class="tr-size" scope="col">
+                      {{ rowData.descripcion }}
+                    </td>
+                    <td class="tr-size ver-align" scope="col">
+                      {{ rowData.nombre }}
+                    </td>
+                    <td class="tr-size ver-align" scope="col">
+                      {{ rowData.fecha }}
+                    </td>
+                    <td class="tr-size ver-align" scope="col">
+                      {{ rowData.hora }}
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+              <br />
+              <br />
+              <!-- <div class="col-md-12 bg-white">
+                <div class="">
+                  <p-paginator
+                    [rows]="1"
+                    [totalRecords]="1"
+                    p-paginator-next="pi-angle-left"
+                  ></p-paginator>
+                </div>
+              </div> -->
+              <br />
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+  </ng-template>
+</div>

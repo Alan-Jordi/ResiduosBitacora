@@ -35,7 +35,43 @@ export class ListadoResiduosComponent implements AfterContentInit  {
       estatus: false
     },
     {
-      id: '0003', 
+      id: '0004', 
+      categoria: 'Sólidos',
+      tipo: 'Ganchos',
+      denNat: '100.0000000001 kg/m³',
+      denComp : '100.0000000001 kg/m³',
+      rec: 'No',
+      estatus: true
+    },
+    {
+      id: '0005', 
+      categoria: 'Sólidos',
+      tipo: 'Ganchos',
+      denNat: '100.0000000001 kg/m³',
+      denComp : '100.0000000001 kg/m³',
+      rec: 'No',
+      estatus: true
+    },
+    {
+      id: '0006', 
+      categoria: 'Sólidos',
+      tipo: 'Ganchos',
+      denNat: '100.0000000001 kg/m³',
+      denComp : '100.0000000001 kg/m³',
+      rec: 'No',
+      estatus: true
+    },
+    {
+      id: '0007', 
+      categoria: 'Sólidos',
+      tipo: 'Ganchos',
+      denNat: '100.0000000001 kg/m³',
+      denComp : '100.0000000001 kg/m³',
+      rec: 'No',
+      estatus: true
+    },
+    {
+      id: '0008', 
       categoria: 'Sólidos',
       tipo: 'Ganchos',
       denNat: '100.0000000001 kg/m³',
@@ -44,6 +80,15 @@ export class ListadoResiduosComponent implements AfterContentInit  {
       estatus: true
     }
   ];
+  column = [
+    {field: 'categoría', header: 'categoría'},
+    {field: 'tipo', header: 'tipo'},
+    {field: 'denNat', header: 'denNat'},
+    {field: 'denComp', header: 'denComp'},
+    {field: 'rec', header: 'rec'},
+    {field: 'estatus', header: 'estatus'},
+    {field: 'detalle', header: 'detalle'},
+  ]
 
   // tabla = [
   //     {
@@ -70,10 +115,10 @@ export class ListadoResiduosComponent implements AfterContentInit  {
   private servicioAlertas:ServicioAlertas) { }
 
   altaPagina(): void{
-      this.router.navigateByUrl('alta');
+      this.router.navigateByUrl('alta-residuos');
   }
   editaPagina(): void{
-    this.router.navigateByUrl('edita');
+    this.router.navigateByUrl('edita-residuos');
   }
   contMas(): void{
     this.cont += 1;

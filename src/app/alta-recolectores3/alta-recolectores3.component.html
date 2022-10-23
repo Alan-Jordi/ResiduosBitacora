@@ -1,0 +1,238 @@
+<div class="row bod">
+  <div class="d-flex">
+    <div class="col-md-2 mb-3">
+      <h4>
+        <a href="alta-recolectores2" class="margin-r2">
+          <i class="fa-solid fa-circle-chevron-left fa-xs blue"></i>
+        </a>
+        Nuevo residuo
+      </h4>
+    </div>
+    <div class="col-md-10 mt-1">
+      <h6 class="blue">3/4</h6>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="col-md-3 mb-3 margin-l2">
+      <h6 class="no-margin grey">Capturado por:</h6>
+      <h6 class="black2">MeztliXochitli Niño de León</h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">N<sup>o</sup> de colaborador:</h6>
+      <h6 class="black2">0000001</h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">Fecha y hora:</h6>
+      <h6 class="black2" [textContent]="fecha"></h6>
+    </div>
+  </div>
+  <hr class="divider" />
+  <div class="d-flex">
+    <div class="col-md-6 margin-l2 shadow-r">
+      <br />
+      <br />
+      <h6>Agrega las ubicaciones donde el recolector puede operar.</h6>
+      <br />
+      <h5>Seleccione un estado</h5>
+      <div class="input-group-append">
+        <select
+          class="form-select rounded-pill caja-texto caja2 gris"
+          aria-label="Default select example"
+          id="estado"
+          (click)="valueEst()"
+        >
+          <option selected value="0">Selecciona una opción</option>
+          <option value="1">Aguascalientes</option>
+          <option value="2">Baja California</option>
+          <option value="3">Baja California Sur</option>
+          <option value="4">Campeche</option>
+          <option value="5">Chiapas</option>
+          <option value="6">Chihuahua</option>
+          <option value="7">Ciudad de México</option>
+          <option value="8">Coahuila</option>
+          <option value="9">Colima</option>
+          <option value="10">Durango</option>
+          <option value="11">Guanajuato</option>
+          <option value="12">Guerrero</option>
+          <option value="13">Hidalgo</option>
+          <option value="14">Jalisco</option>
+          <option value="15">México</option>
+          <option value="16">Michoacán</option>
+          <option value="17">Morelos</option>
+          <option value="18">Nayarit</option>
+          <option value="19">Nuevo León</option>
+          <option value="20">Oaxaca</option>
+          <option value="21">Puebla</option>
+          <option value="22">Querétaro</option>
+          <option value="23">Quintana Roo</option>
+          <option value="24">San Luis Potosí</option>
+          <option value="25">Sinaloa</option>
+          <option value="26">Sonora</option>
+          <option value="27">Tabasco</option>
+          <option value="28">Tamaulipas</option>
+          <option value="29">Tlaxcala</option>
+          <option value="30">Veracruz</option>
+          <option value="31">Yucatán</option>
+          <option value="32">Zacatecas</option>
+        </select>
+        <br />
+        <h5>Seleccione un municipio</h5>
+        <div class="input-group-append">
+          <select
+            class="form-select rounded-pill caja-texto caja2 gris"
+            aria-label="Default select example"
+            id="municipio"
+            disabled
+            (click)="valueMun()"
+          >
+            <option selected value="0">Selecciona una opción</option>
+            <option value="1">Aguascalientes</option>
+            <option value="2">Baja California</option>
+            <option value="3">Baja California Sur</option>
+            <option value="4">Campeche</option>
+            <option value="5">Chiapas</option>
+            <option value="6">Chihuahua</option>
+            <option value="7">Ciudad de México</option>
+            <option value="8">Coahuila</option>
+            <option value="9">Colima</option>
+            <option value="10">Durango</option>
+            <option value="11">Guanajuato</option>
+            <option value="12">Guerrero</option>
+            <option value="13">Hidalgo</option>
+            <option value="14">Jalisco</option>
+            <option value="15">México</option>
+            <option value="16">Michoacán</option>
+            <option value="17">Morelos</option>
+            <option value="18">Nayarit</option>
+            <option value="19">Nuevo León</option>
+            <option value="20">Oaxaca</option>
+            <option value="21">Puebla</option>
+            <option value="22">Querétaro</option>
+            <option value="23">Quintana Roo</option>
+            <option value="24">San Luis Potosí</option>
+            <option value="25">Sinaloa</option>
+            <option value="26">Sonora</option>
+            <option value="27">Tabasco</option>
+            <option value="28">Tamaulipas</option>
+            <option value="29">Tlaxcala</option>
+            <option value="30">Veracruz</option>
+            <option value="31">Yucatán</option>
+            <option value="32">Zacatecas</option>
+          </select>
+          <br />
+          <div class="form-check margin-x">
+            <input
+              class="form-check-input tamano2"
+              type="checkbox"
+              id="todo"
+              value="toda"
+            />
+            <label class="form-check-label margin-t2" for="todo">
+              <strong
+                >Este recolector puede operar en toda la República
+                Mexicana</strong
+              >
+            </label>
+            <br />
+            <br />
+            <div class="d-flex">
+              <button
+                class="btn btn-primary shadows buscar margin-x"
+                (click)="limpiar()"
+              >
+                <h6>Limpiar</h6>
+              </button>
+              <button
+                class="btn btn-primary primary residuo shadows margin-xr"
+                id="ubi"
+                disabled
+                (click)="lista()"
+              >
+                <h6>Agregar ubicación</h6>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vr linea"></div>
+    </div>
+    <div class="col-md-5 margin-l2">
+      <div *ngIf="bool">
+        <div class="bg-white round noWrap">
+          <br />
+          <h6 class="margin-l margin-y1 azul">UBICACIONES</h6>
+          <br />
+          <div *ngFor="let objeto of tabla; index as i">
+            <div *ngIf="i != 0">
+              <h6 class="margin-l lineIn">{{ objeto.estado }}</h6>
+              <br />
+              <div class="row">
+                <div *ngFor="let municipio of objeto.municipios; index as j" class="col-md-3">
+                  <div *ngIf="j == 0 || j%4 == 0; else Otro">
+                    <div class="margin-l margin-box size-box">
+                      <div
+                        class="alert bordeazul alert-dismissible fade show"
+                        role="alert"
+                      >
+                        <div class="text tamano w" id="{{ objeto.estado }}">
+                          {{ municipio }}
+                        </div>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="alert"
+                          aria-label="Close"
+                          (click)="elimina(objeto.estado, municipio)"
+                        ></button>
+                      </div>
+                    </div>
+                  </div>
+                  <ng-template #Otro>
+                    <div class="margin-box size-box">
+                      <div
+                        class="alert bordeazul alert-dismissible fade show"
+                        role="alert"
+                      >
+                        <div class="text tamano w" id="{{ objeto.estado }}">
+                          {{ municipio }}
+                        </div>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="alert"
+                          aria-label="Close"
+                          (click)="elimina(objeto.estado, municipio)"
+                        ></button>
+                      </div>
+                    </div>
+                  </ng-template>
+                  
+                </div>
+              </div>
+              <hr class="divider margin-l" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+</div>
+<div class="row margin-t mt-5">
+  <div *ngIf="bool">
+    <div class="col-mb-12 d-flex flex-row-reverse">
+      <button
+        class="btn btn-primary residuo shadows margin-xr"
+        (click)="sigPagina()"
+      >
+        <h6>Siguiente</h6>
+      </button>
+      <button
+        class="btn btn-primary shadows buscar margin-x"
+        (click)="atrPagina()"
+      >
+        <h6>Atrás</h6>
+      </button>
+    </div>
+  </div>
+</div>

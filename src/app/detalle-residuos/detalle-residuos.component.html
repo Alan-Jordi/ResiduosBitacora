@@ -1,53 +1,76 @@
 <div class="row bod">
   <div class="col-md-12 mb-3">
     <h4 class="margin-b0">
-      <a href="listado"
+      <a href="listado-residuos"
         ><img class="img-margin" src="/assets/static/iconChevLeft.png"
       /></a>
       [Categoría del residuo]
     </h4>
     <h5 class="margin-l">[Tipo del residuo]</h5>
   </div>
-  <div class="col-md-6 mx-0 padding-x0">
-    <h5 class="blue borders text margin-x0">Acciones operarias</h5>
-  </div>
-  <div class="col-md-6 mx-0 padding-x0">
-    <hr class="divider margin-t" />
-  </div>
-  <div class="col-md-5 margin-t0">
-    <div class="input-group">
-      <div class="input-group-append">
-        <select
-          class="form-select rounded-pill caja-texto caja2 blue"
-          aria-label="Default select example"
-        >
-          <option selected>Acción</option>
-          <option value="1">Generó</option>
-          <option value="2">Editó</option>
-          <option value="3">Activó</option>
-          <option value="3">Desactivó</option>
-        </select>
-      </div>
-      <div class="input-group-append">
-        <select
-          class="form-select rounded-pill caja-texto caja blue"
-          aria-label="Default select example"
-        >
-          <option selected value="1">Septiembre</option>
-          <option value="2">Hace 6 meses</option>
-          <option value="3">Hace 1 año</option>
-          <option value="4">Hace 2 años</option>
-        </select>
-      </div>
+  <div class="d-flex">
+    <div class="col-md-6 mx-0 padding-x0">
+      <h5 class="blue borders text margin-x0">Acciones operarias</h5>
+    </div>
+    <div class="col-md-6 mx-0 padding-x0">
+      <hr class="divider margin-t" />
     </div>
   </div>
-  <div class="col-md-7 d-flex flex-row-reverse">
-    <button class="btn btn-primary primary mx-3"><h6>PDF</h6></button>
-    <button class="btn btn-primary primary"><h6>CSV</h6></button>
+  <div class="d-flex">
+    <div class="col-md-5 margin-t0">
+      <div class="input-group">
+        <div class="input-group-append">
+          <div class="btn-group h" dropdown>
+            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle dropdown size-dd"
+                    aria-controls="dropdown-basic">
+              <div class="margin-rs line-in" id="accion-dd">Acción</div> <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                role="menu" aria-labelledby="button-basic">
+              <li role="menuitem" (click)="textDrop('accion-dd', 'Generó')"><a class="dropdown-item">Generó</a></li>
+              <li role="menuitem" (click)="textDrop('accion-dd', 'Editó')"><a class="dropdown-item">Editó</a></li>
+              <li role="menuitem" (click)="textDrop('accion-dd', 'Activó')"><a class="dropdown-item">Activó</a></li>
+              <li role="menuitem" (click)="textDrop('accion-dd', 'Desactivó')"><a class="dropdown-item">Desactivó</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="input-group-append">
+          <div class="btn-group margin-l2 h" dropdown>
+            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle dropdown size-dd2"
+                    aria-controls="dropdown-basic">
+              <div class="margin-r line-in" id="accion-dd2">Este mes</div> <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                role="menu" aria-labelledby="button-basic">
+              <li role="menuitem" (click)="textDrop('accion-dd2', 'Hace 6 meses')"><a class="dropdown-item">Hace 6 meses</a></li>
+              <li role="menuitem" (click)="textDrop('accion-dd2', 'Hace 1 año')"><a class="dropdown-item">Hace 1 año</a></li>
+              <li role="menuitem" (click)="textDrop('accion-dd2', 'Hace 2 años')"><a class="dropdown-item">Hace 2 años</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="input-group-append">
+          <select
+            class="form-select rounded-pill caja-texto caja blue"
+            aria-label="Default select example"
+          >
+            <option selected value="1">Septiembre</option>
+            <option value="2">Hace 6 meses</option>
+            <option value="3">Hace 1 año</option>
+            <option value="4">Hace 2 años</option>
+          </select>
+        </div> -->
+      </div>
+    </div>
+    <div class="col-md-7 d-flex flex-row-reverse">
+      <button class="btn btn-primary primary mx-3"><h6>PDF</h6></button>
+      <button class="btn btn-primary primary"><h6>CSV</h6></button>
+    </div>
   </div>
   <div class="bod margin-t2">
-    <table class="table margin-b0">
-      <thead>
+    <p-table [columns]="column" [value]="tabla" [paginator]="true" [rows]="7" 
+    [totalRecords]="tabla.length" [pageLinks]="3" class="table margin-b0">
+      <ng-template pTemplate="header">
         <tr>
           <th scope="col">Acción</th>
           <th scope="col">Nombre del colaborador</th>
@@ -55,24 +78,29 @@
           <th scope="col">Fecha</th>
           <th scope="col">Hora</th>
         </tr>
-      </thead>
-      <tbody class="tabla bg-white">
-        <tr *ngFor="let objecto of tabla; index as i">
+      </ng-template>
+      <ng-template
+      pTemplate="body"
+      let-rowData
+      let-columns="columns"
+      let-i="rowIndex"
+      class="tabla bg-white">
+        <tr>
           <td scope="col">
             <div class="accion" [ngClass]="getObjeto(i)">
-              <h6 class="white">{{ objecto.accion }}</h6>
+              <h6 class="white padding-t">{{ rowData.accion }}</h6>
             </div>
           </td>
-          <td scope="col">{{ objecto.nombre }}</td>
-          <td scope="col">{{ objecto.numero }} kg/m<sup>3</sup></td>
-          <td scope="col">{{ objecto.fecha }} kg/m<sup>3</sup></td>
-          <td scope="col">{{ objecto.hora }}</td>
+          <td scope="col">{{ rowData.nombre }}</td>
+          <td scope="col">{{ rowData.numero }}</td>
+          <td scope="col">{{ rowData.fecha }} kg/m<sup>3</sup></td>
+          <td scope="col">{{ rowData.hora }}</td>
         </tr>
-      </tbody>
-    </table>
+      </ng-template>
+    </p-table>
     <br>
     <br>
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
       <div class="white">
         <p-paginator
           [rows]="1"
@@ -80,7 +108,7 @@
           p-paginator-next="pi-angle-left"
         ></p-paginator>
       </div>
-    </div>
+    </div> -->
     <br />
   </div>
 </div>

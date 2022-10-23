@@ -1,0 +1,102 @@
+<div class="row bod">
+  <div class="d-flex">
+    <div class="col-md-2 mb-3">
+      <h4>
+        <a href="listado-recolectores" class="margin-r">
+          <i class="fa-solid fa-circle-chevron-left fa-xs blue"></i>
+        </a>
+        Nuevo residuo
+      </h4>
+    </div>
+    <div class="col-md-10 mt-1">
+      <h6 class="blue">1/4</h6>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="col-md-3 mb-3 margin-l2">
+      <h6 class="no-margin grey">Capturado por:</h6>
+      <h6 class="black2" [textContent]="capturador"></h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">N<sup>o</sup> de colaborador:</h6>
+      <h6 class="black2" [textContent]="noCol"></h6>
+    </div>
+    <div class="col-md-3">
+      <h6 class="no-margin grey">Fecha y hora:</h6>
+      <h6 class="black2" [textContent]="fecha"></h6>
+    </div>
+  </div>
+  <hr class="divider" />
+  <div class="d-flex">
+    <div class="col-md-6 margin-l2 shadow-r">
+      <br />
+      <br />
+      <h6>Ingrese nombre o razón social del recolector que quiere agregar.</h6>
+      <h5>Nombre o razón social</h5>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control rounded-pill caja-texto"
+          placeholder="Nombre o razón social"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary shadows buscar" (click)="change()">
+            <h6>Buscar</h6>
+          </button>
+        </div>
+      </div>
+      <div class="vr linea"></div>
+    </div>
+    <div class="col-md-5 margin-l2">
+      <div *ngIf="bool">
+        <div class="bg-white round">
+          <br />
+          <h4 class="margin-l margin-b1">CIDSA</h4>
+          <h6 class="margin-l margin-y1 grey">
+            Cid-Sa Control Industrial de Desechos
+          </h6>
+          <h6 class="margin-l margin-y1 grey">XAXX01010100</h6>
+          <hr class="divider" />
+          <br />
+          <h6 class="margin-l margin-y1 grey">Teléfono fijo:</h6>
+          <h5 class="margin-l margin-y1">55 5555 5555</h5>
+          <br />
+          <h6 class="margin-l margin-y1 grey">Celular:</h6>
+          <h5 class="margin-l margin-y1">55 5555 5555</h5>
+          <br />
+          <h6 class="margin-l margin-y1 grey">Correo electrónico:</h6>
+          <h5 class="margin-l margin-y1">correo@ejemplo.com</h5>
+          <br />
+          <h6 class="margin-l margin-y1 grey">Contacto principal:</h6>
+          <h5 class="margin-l margin-y1">Contacto principal</h5>
+          <br />
+          <h6 class="margin-l margin-y1 grey">
+            Nombre del contacto comercial o cuenta clave:
+          </h6>
+          <h5 class="margin-l margin-y1">Nombre de contacto</h5>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5 margin-l2"></div>
+  <br />
+</div>
+<div class="row margin-t mt-5">
+  <div *ngIf="bool">
+    <div class="col-mb-12 d-flex flex-row-reverse">
+      <button
+        class="btn btn-primary residuo shadows margin-xr"
+        (click)="altaPagina2()"
+      >
+        <h6>Siguiente</h6>
+      </button>
+      <button
+        class="btn btn-primary shadows buscar margin-x"
+        (click)="listadoPagina()"
+      >
+        <h6>Cancelar</h6>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="siz">
+    <div class="row shadow-sm white-bg trans">
+        <div class="col-md-12 mb-3 margin-l2 margin-t">
+            <h4>
+              Editar permiso
+            </h4>
+        </div>
+        <!-- <div class="col-md-1 margin-ln mt-1">
+          <button
+                  type="button"
+                  class="btn-close margin-l"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                  (click)="atrPagina()"
+                ></button>
+        </div> -->
+          <div class="col-md-3 margin-l2 mb-2">
+            <h6 class="no-margin grey">Editado por:</h6>
+            <h6 class="black2">MeztliXochitli Niño de León</h6>
+          </div>
+          <div class="col-md-3">
+            <h6 class="no-margin grey">N<sup>o</sup> de colaborador:</h6>
+            <h6 class="black2">0000001</h6>
+          </div>
+          <div class="col-md-3">
+            <h6 class="no-margin grey">Fecha y hora:</h6>
+            <h6 class="black2" [textContent]="date()"></h6>
+          </div>
+          <hr class="divider" />
+          <div class="col-md-12 margin-l2">
+            <br />
+            <h5>Tipo de permiso</h5>
+            <div class="input-group-append">
+              <select
+                class="form-select rounded-pill caja-texto caja2 gris"
+                aria-label="Default select example"
+                id="tipopermisoM"
+                (click)="lleno()"
+              >
+                <option selected value="0">
+                  Seleccione el permiso para asignar la vigencia
+                </option>
+                <option value="1">Permiso de acopio</option>
+                <option value="2">Permiso de disposición de reciclaje</option>
+                <option value="3">Plan de manejo</option>
+                <option value="4">Permiso de transporte</option>
+                <option value="5">Otros permisos</option>
+              </select>
+              <br />
+              <h5>Permiso</h5>
+              <div class="input-group-append">
+                <input
+                  type="text"
+                  class="form-control rounded-pill caja-texto"
+                  placeholder="Escribe el folio/número de permiso/registro"
+                  id="permisoM"
+                  (keyup)="lleno()"
+                />
+                <br />
+                <h5>Vigencia de permiso</h5>
+                <div class="input-group">
+                  <h6 class="margin-dh">Desde:</h6>
+                  <div class="input-group-append margin-r2">
+                    <input
+                    type="date"
+                    class="form-control rounded-pill caja-texto empty"
+                    placeholder="dd/mm/aa"
+                    id="desdeM"
+                    (change)="lleno()"
+                    />
+                  </div>
+                  <h6 class="margin-dh">Hasta:</h6>
+                  <div class="input-group-append">
+                    <input
+                      type="date"
+                      class="form-control rounded-pill caja-texto empty"
+                      placeholder="dd/mm/aa"
+                      id="hastaM"
+                      (change)="lleno()"
+                    />
+                    <br />
+                  </div>
+                </div>
+                <div class="col-mb-12 margin-lb">
+                  <button
+                    class="btn btn-primary shadows buscar margin-x margin-l"
+                    (click)="atrPagina()"
+                  >
+                    <h6 class="centro">Cancelar</h6>
+                  </button>
+                  <button
+                    class="btn btn-primary primary shadows margin-xr h-44"
+                    id="ubiM"
+                    disabled
+                    (click)="adelPagina()"
+                  >
+                    <h6 class="centro">Guardar cambios</h6>
+                  </button>
+                </div>
+                <br>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  

@@ -19,7 +19,7 @@ export class EditarResiduosComponent {
 
   listaPagina(): void{
     this.servicioAlertas.boolEditaSet = true;
-    this.router.navigateByUrl('listado')
+    this.router.navigateByUrl('listado-residuos')
   }
 
   alert(): void{
