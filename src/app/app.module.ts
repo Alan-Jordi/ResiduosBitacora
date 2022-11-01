@@ -36,6 +36,8 @@ import { AltaUbicacionRecolectoresComponent } from './alta-ubicacion-recolectore
 import { EliminaRecolectorComponent } from './elimina-recolector/elimina-recolector.component';
 import { EditaAltaRecolectoresComponent } from './edita-alta-recolectores/edita-alta-recolectores.component';
 import { EliminaAltaRecolectoresComponent } from './elimina-alta-recolectores/elimina-alta-recolectores.component';
+import { PerfilesComponent } from './perfiles/perfiles.component';
+import { SalirPerfilesComponent } from './salir-perfiles/salir-perfiles.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { EliminaAltaRecolectoresComponent } from './elimina-alta-recolectores/el
     AltaUbicacionRecolectoresComponent,
     EliminaRecolectorComponent,
     EditaAltaRecolectoresComponent,
-    EliminaAltaRecolectoresComponent
+    EliminaAltaRecolectoresComponent,
+    PerfilesComponent,
+    SalirPerfilesComponent
   ],
   imports: [
     MatDatepickerModule,

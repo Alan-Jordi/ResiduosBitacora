@@ -1,0 +1,248 @@
+<div class="row bod">
+  <div class="d-flex">
+    <div class="col-md-7 mb-5 mt-1">
+      <h4 class="margin-b0">
+        <a>
+          <i class="fa-solid fa-circle-chevron-left fa-xs blue"></i>
+        </a>
+        [Nombre del colaborador]
+      </h4>
+      <h5 class="margin-l32">[Tipo del residuo]</h5>
+    </div>
+    <div class="col-md-3 mt-2 margin-lsup">
+      <button class="btn btn-primary blue-but" (click)="salir()">
+        <h6 class="centro">Volver a Aplicaciones Coppel</h6>
+      </button>
+    </div>
+    <!-- <div
+      class="col-md-3 mt-2 margin-lsup"
+      *ngIf="
+        !boolMod &&
+          !boolElim &&
+          !boolModUbi &&
+          !boolElimUbi &&
+          !boolModPer &&
+          !boolElimPer;
+        else AlertaMod
+      "
+    >
+      <div>
+        <button class="btn btn-primary carmesi-but" (click)="elimina()">
+          <h6 class="centro">Eliminar recolector</h6>
+        </button>
+      </div>
+    </div>
+    <ng-template #AlertaMod>
+      <div class="col-md-5" *ngIf="boolMod">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              El residuo [nombre residuo] se editó correctamente
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolModUbi">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              La ubicación [nombre de ubicación] se editó correctamente
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolModPer">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              El permiso [nombre de permiso] se editó correctamente
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolElim">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              <strong>Atención!</strong> El residuo [nombre residuo] ha sido
+              eliminado
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolElimUbi">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              <strong>Atención!</strong> La ubicación [nombre de ubicación] ha
+              sido eliminado
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5" *ngIf="boolElimPer">
+        <div class="margin-box size-box margin-l2">
+          <div
+            class="alert verde-alert alert-dismissible fade show"
+            role="alert"
+          >
+            <div class="text">
+              <strong>Atención!</strong> El permiso [nombre de permiso] ha sido
+              eliminado
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              (click)="click()"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </ng-template> -->
+  </div>
+  <div class="d-flex">
+    <div class="col-md-2 mb-3 margin-l2">
+      <p class="no-margin">Puesto:</p>
+      <h6 class="black2">Bodeguita</h6>
+    </div>
+    <div class="col-md-2">
+      <p class="no-margin">N° de centro</p>
+      <h6 class="black2">1088</h6>
+    </div>
+    <div class="col-md-2">
+      <p class="no-margin">Nombre del centro</p>
+      <h6 class="black2">Puerto</h6>
+    </div>
+    <div class="col-md-6">
+      <p class="no-margin">Punto de generación</p>
+      <h6 class="black2">Tienda</h6>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="col-md-6 mx-0 padding-x0 h margin-b" (click)="clase('per')">
+      <h5 class="blue on text margin-x0" id="per">Permisos</h5>
+    </div>
+    <div class="col-md-6 mx-0 padding-x0 h margin-b" (click)="clase('sup')">
+      <h5 class="blue off text margin-x0" id="sup">Suplencia</h5>
+    </div>
+  </div>
+  <!-- <div class="col-md-12 margin-t0">
+          <h6 class="margin-x0 margin-y1 azul">TIPO DE RESIDUO</h6>
+      </div> -->
+
+  <div *ngIf="focus == 'per'">
+    <div class="row bod">
+      <div class="col-md-11 margin-l24">
+        <div class="bg-white round margin-b">
+          <br />
+          <h6 class="txt-color margin-lresc">Permiso: Personalizado</h6>
+          <hr class="divider" />
+          <div *ngFor="let obj of tabla">
+            <div
+              class="d-flex justify-content-between align-items-center margin-r"
+            >
+              <h5 class="margin-lresc">{{ obj.nombre }}</h5>
+              <!-- <div class="d-flex align-items-center">
+                <a (click)="editaJur(obj.id)" class="h"
+                  ><i class="fa-solid fa-pen blue fa-xs"></i>
+                </a>
+                <a (click)="eliminaJur(obj.id)" class="margin-ls h"
+                  ><i class="fa-solid fa-trash blue fa-xs"></i>
+                </a>
+              </div> -->
+            </div>
+            <br />
+            <div class="row">
+              <ng-container class="" *ngFor="let x of obj.tipos; index as i">
+                <ng-container *ngIf="i == 0; else NoM">
+                  <div class="col-md-1">
+                    <i class="fa-solid fa-check margin-lresc"></i>
+                  </div>
+                  <div class="col-md-3 nojump">
+                    <h6 class="margin-lrescN">{{ x }}</h6>
+                  </div>
+                </ng-container>
+                <ng-template #NoM>
+                  <div class="col-md-1">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <div class="col-md-3 nojump">
+                    <h6 class="margin-lrescN2">{{ x }}</h6>
+                  </div>
+                </ng-template>
+              </ng-container>
+            </div>
+            <br>
+            <!-- <hr class="divider" /> -->
+            <br />
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-2">
+    <a>
+      <h6 class="blue">Términos y condiciones</h6>
+    </a>
+  </div>
+  <div class="col-md-2">
+    <a>
+      <h6 class="blue">Aviso de privacidad</h6>
+    </a>
+  </div>
+  <div class="col-md-4"></div>
+</div>

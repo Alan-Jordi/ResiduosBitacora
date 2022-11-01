@@ -19,6 +19,7 @@ import { EditaPermisoRecolectoresComponent } from './edita-permiso-recolectores/
 import { AltaPermisoRecolectoresComponent } from './alta-permiso-recolectores/alta-permiso-recolectores.component';
 import { EditaUbicacionRecolectoresComponent } from './edita-ubicacion-recolectores/edita-ubicacion-recolectores.component';
 import { AltaUbicacionRecolectoresComponent } from './alta-ubicacion-recolectores/alta-ubicacion-recolectores.component';
+import { PerfilesComponent } from './perfiles/perfiles.component';
 
 const routes: Routes = [
   {path: 'listado-residuos', component: ListadoResiduosComponent},
@@ -39,7 +40,8 @@ const routes: Routes = [
   {path: 'edita-permiso-recolectores', component:EditaPermisoRecolectoresComponent},
   {path: 'alta-permiso-recolectores', component:AltaPermisoRecolectoresComponent},
   {path: 'edita-ubicacion-recolectores', component:EditaUbicacionRecolectoresComponent},
-  {path: 'alta-ubicacion-recolectores', component:AltaUbicacionRecolectoresComponent}
+  {path: 'alta-ubicacion-recolectores', component:AltaUbicacionRecolectoresComponent},
+  {path: 'perfiles', component:PerfilesComponent}
 ];
 
 @NgModule({
